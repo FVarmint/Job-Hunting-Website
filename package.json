@@ -4,8 +4,13 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "admin-bro": "^4.0.1",
+    "admin-bro-expressjs": "^2.1.1",
+    "admin-bro-mongoose": "^0.5.2",
     "bcrypt": "^5.0.1",
     "express": "^4.17.1",
+    "express-formidable": "^1.2.0",
+    "express-session": "^1.17.2",
     "hbs": "^4.1.2",
     "js": "^0.1.0",
     "jsonwebtoken": "^8.5.1",
