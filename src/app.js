@@ -3,6 +3,8 @@ const path = require('path');
 const registerRouter = require("./routers/register");
 const loginRouter = require('./routers/login');
 const usersRouter = require('./routers/users');
+const adminRouter = require('./routers/admin');
+const bodyParser = require('body-parser')
 const poerfoliosRouter = require('./routers/portfolios');
 
 const app = express();
@@ -14,7 +16,9 @@ app.use(express.json());
 app.use(registerRouter);
 app.use(loginRouter);
 app.use(usersRouter);
-app.use(express.urlencoded({extended:false}))
+app.use('/admin' , adminRouter)
+app.use(bodyParser.json())
+app.use(express.urlencoded({extended:false}));
 
 app.set('view engine' , 'hbs')
 app.set('views' , viewsPath)
