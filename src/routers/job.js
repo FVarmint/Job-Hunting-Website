@@ -16,7 +16,7 @@ con.on('open' , ()=>{
 
 router.post('/users/jobs' , auth ,  async(req,res)=>{
     try{
-        const user = req.User;
+        const user = req.User._id;
         const registerJob = await new job({
             companyName: req.body.companyName,
             profile: req.body.profile,
@@ -24,7 +24,7 @@ router.post('/users/jobs' , auth ,  async(req,res)=>{
             experience: req.body.experience,
             jobDetails: req.body.jobDetails,
             jobLocation: req.body.jobLocation,
-            userDetails: user,
+            userID: user,
         })
         registerJob.save().then(()=>{
             console.log(registerJob);

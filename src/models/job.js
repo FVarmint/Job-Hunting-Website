@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const schema = mongoose.Schema;
 const bcrypt = require('bcrypt');
+const user = require('./user')
 
 const jobSchema = new mongoose.Schema({
     
@@ -30,9 +31,10 @@ const jobSchema = new mongoose.Schema({
         type: String, 
         required:false
     },
-    userDetails:[{
-       
-    }]
+    userID:{
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'user'
+    }
 })
 
 const job = new mongoose.model('job' , jobSchema);
