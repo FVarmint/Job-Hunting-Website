@@ -1,6 +1,9 @@
 const AdminBro = require('admin-bro')
 const AdminBroExpress = require('admin-bro-expressjs')
 const AdminBroMongoose = require('admin-bro-mongoose')
+const job = require('../models/job')
+const user = require('../models/user');
+const portfolio = require("../models/portfolio")
 
 const mongoose = require('mongoose')
 
@@ -8,6 +11,7 @@ AdminBro.registerAdapter(AdminBroMongoose)
 
 const adminBro = new AdminBro({
   databases: [mongoose],
+  resource:[user , job , portfolio],
   rootPath: '/admin',
 })
 
