@@ -1,11 +1,12 @@
 const express = require('express');
 const path = require('path');
-const registerRouter = require("./routers/register");
+const registerRouter = require('./routers/register');
 const loginRouter = require('./routers/login');
 const usersRouter = require('./routers/users');
 const adminRouter = require('./routers/admin');
 const bodyParser = require('body-parser')
-const poerfoliosRouter = require('./routers/portfolios');
+const portfoliosRouter = require('./routers/portfolios');
+const jobRouter = require('./routers/job');
 
 const app = express();
 const port = process.env.port || 3000;
@@ -17,6 +18,7 @@ app.use(registerRouter);
 app.use(loginRouter);
 app.use(usersRouter);
 app.use('/admin' , adminRouter)
+app.use(jobRouter)
 app.use(bodyParser.json())
 app.use(express.urlencoded({extended:false}));
 

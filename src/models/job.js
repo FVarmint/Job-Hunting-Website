@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const schema = mongoose.Schema;
 const bcrypt = require('bcrypt');
 
-const userSchema = new mongoose.Schema({
+const jobSchema = new mongoose.Schema({
     
     companyName:{
         type:String,
@@ -24,13 +24,16 @@ const userSchema = new mongoose.Schema({
     },
     jobDetails:{
         type: String,
-        unique: true,
+        unique: false,
     },
     jobLocation: {
         type: String, 
         required:false
-      }
+    },
+    userDetails:[{
+       
+    }]
 })
 
-const job = new mongoose.model('job' , userSchema);
+const job = new mongoose.model('job' , jobSchema);
 module.exports = job;

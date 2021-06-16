@@ -16,7 +16,7 @@ mongoose.connect(url , {useNewUrlParser:true, useUnifiedTopology:true, useCreate
 const con = mongoose.connection;
 
 con.on('open' , ()=>{
-    console.log('connected')
+    console.log('userDB connected')
 })
 
 router.post('/register' , async (req,res)=>{
