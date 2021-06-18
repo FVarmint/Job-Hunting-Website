@@ -4,8 +4,8 @@ const registerRouter = require('./routers/register');
 const loginRouter = require('./routers/login');
 const usersRouter = require('./routers/users');
 const adminRouter = require('./routers/admin');
-const bodyParser = require('body-parser')
-const portfoliosRouter = require('./routers/portfolios');
+const bodyParser = require('body-parser');
+const portfolioRouter = require('./routers/portfolio'); 
 const jobRouter = require('./routers/job');
 
 const app = express();
@@ -18,7 +18,8 @@ app.use(registerRouter);
 app.use(loginRouter);
 app.use(usersRouter);
 app.use('/admin' , adminRouter)
-app.use(jobRouter)
+app.use(jobRouter);
+app.use(portfolioRouter);
 app.use(bodyParser.json())
 app.use(express.urlencoded({extended:false}));
 
