@@ -7,12 +7,12 @@ const mongoose = require('mongoose');
 const auth = require('../middleware/auth');
 
 // const job = express();
-mongoose.connect(url , {useNewUrlParser:true, useUnifiedTopology:true, useCreateIndex: true , useFindAndModify:false})
-const con = mongoose.connection;
+// mongoose.connect(url , {useNewUrlParser:true, useUnifiedTopology:true, useCreateIndex: true , useFindAndModify:false})
+// const con = mongoose.connection;
 
-con.on('open' , ()=>{
-    console.log('jobDB connected')
-})
+// con.on('open' , ()=>{
+//     console.log('jobDB connected')
+// })
 
 router.post('/users/jobs' , auth ,  async(req,res)=>{
     try{

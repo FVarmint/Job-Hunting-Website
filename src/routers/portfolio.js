@@ -8,12 +8,12 @@ const auth = require('../middleware/auth');
 const bodyParser = require('body-parser');
 
 // const portfolio = express();
-mongoose.connect(url , {useNewUrlParser:true, useUnifiedTopology:true, useCreateIndex: true , useFindAndModify:false})
-const con = mongoose.connection;
+// mongoose.connect(url , {useNewUrlParser:true, useUnifiedTopology:true, useCreateIndex: true , useFindAndModify:false})
+// const con = mongoose.connection;
 
-con.on('open' , ()=>{
-    console.log('portfolioDB connected')
-})
+// con.on('open' , ()=>{
+//     console.log('portfolioDB connected')
+// })
 
 router.post('/users/portfolios' , auth ,  async(req,res)=>{
     try{
