@@ -36,6 +36,37 @@ router.post('/users/jobs' , auth ,  async(req,res)=>{
         res.status(400).send(error);
     }
 })
+// router.delete('/jobs/delete/:id', async (req, res) => {
+//     try {
+//         const Job = await user.findByIdAndDelete(req.params.id);
+
+//         if (!Job) {
+//             return res.status(404).send();
+//         }
+
+//         res.send(Job);
+//     } catch (e) {
+//         res.status(500).send();
+//     }
+// })
+
+router.get('/jobs/:id' ,auth ,  async(req,res)=>{
+    const _id = req.params.id;
+
+    job.findById(_id).then((job)=>{
+        res.send(job);
+    })
+
+
+})
+
+router.post('/jobsbyuser' , auth, async(req,res)=>{
+    //const User._id = req.params.id;
+    const user = req.User._id;
+    job.find({userID:user}).then((job)=>{
+        res.send(job);
+    })
+})
 router.patch('/jobs/update/:id', async (req, res) => {
     const updates = Object.keys(req.body)
     const allowedUpdates = ['companyName', 'jobDescription', 'profile', 'experience', 'jobDetails', 'jobLocation']
