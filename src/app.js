@@ -7,6 +7,7 @@ const adminRouter = require('./routers/admin');
 const bodyParser = require('body-parser');
 const portfolioRouter = require('./routers/portfolio'); 
 const jobRouter = require('./routers/job');
+const applicationRouter = require('./routers/application');
 
 const app = express();
 const port = process.env.port || 3000;
@@ -20,6 +21,7 @@ app.use(usersRouter);
 app.use('/admin' , adminRouter)
 app.use(jobRouter);
 app.use(portfolioRouter);
+app.use(applicationRouter);
 app.use(bodyParser.json())
 app.use(express.urlencoded({extended:false}));
 
