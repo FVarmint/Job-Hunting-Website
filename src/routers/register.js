@@ -1,14 +1,15 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const url = 'mongodb+srv://DBuser:abcd@1234@jhwacluster.qqpp7.mongodb.net/userDB?retryWrites=true&w=majority'
+const url = 'mongodb://localhost/userDB'
 const user = require('../models/user')
 const router = new express.Router();
 const jwt = require('jsonwebtoken');
 const config = require("../config/auth.config");
+const nodemailer = require("nodemailer");
 
-const mailgun = require('mailgun-js');
-const DOMAIN = "sandboxb48a0e6fd409415c827de02d141527be.mailgun.org";
-const mg = mailgun({apiKey: "51dad1cb1e22b9792e9cf4a9a6e323ac-90ac0eb7-ecfa66d4", domain: DOMAIN});
+//  const mailgun = require('mailgun-js');
+//  const DOMAIN = "sandboxab158520fb3a41c1a6ab9c1d549b4eb1.mailgun.org";
+//  const mg = mailgun({apiKey: "f8957e177df300dd198267addbd20953-90ac0eb7-998a5e8e", domain: DOMAIN});
 
 const register = express();
 
@@ -18,6 +19,13 @@ const con = mongoose.connection;
 con.on('open' , ()=>{
     console.log('Database connected')
 })
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'techumbeo@gmail.com',
+    pass: 'techumbeo123'
+  }
+});
 
 router.post('/register' , async (req,res)=>{
     try{
@@ -33,7 +41,7 @@ router.post('/register' , async (req,res)=>{
             confirmationCode: token
           });
         const email = await req.body.email;
-        
+       
         registerUser.save().then(()=>{
             // console.log(registerUser);
             res.send(registerUser);
@@ -42,22 +50,22 @@ router.post('/register' , async (req,res)=>{
             const confirmationCode = registerUser.confirmationCode;
             // console.log(confirmationCode)
             // const verificationLink = `http://localhost:3000/users/${_id}`
-            const data = {
-                from: "noreply@hello.com",
-                to: email,
-                subject: "Umbeo Technologies",
-                html: `Use this link to verify your email: <a href=http://localhost:3000/register/${confirmationCode}>http://localhost:3000/register/${confirmationCode}</a>`,
-            };
-            mg.messages().send(data, function (error, body) {
-                console.log(body);
-            });
-        }).catch((e)=>{
-            res.status(400).send(e);
-        })
-    }
-    catch(error){
-        res.status(400).send(error);
-    }
+            const data = transporter.sendMail({
+              from: "techumbeo@gmail.com",
+              to: email,
+              subject: "Umbeo Technologies",
+              html: `Use this link to verify your email: <a href=http://localhost:3000/register/${confirmationCode}>Click here</a>`
+          });
+          transporter.sendMail(data, function(error, info){
+            console.log(info);
+          });
+      }).catch((e)=>{
+          res.status(400).send(e);
+      })
+  }
+  catch(error){
+      res.status(400).send(error);
+  }
 })
 
 router.get('/register' , (req,res)=>{
