@@ -18,9 +18,8 @@ const Dashboard = () => {
   <div className="container-fluid">
   <div className="container-fluid">
     <a className="navbar-brand" href="#">
-      <img src="adminLogo.png" alt="" width="40" height="40"/>
-
-      <span class="navbar-brand mb-0 h1"> Dashboard </span>
+    <img src="adminLogo.png" alt="" width="40" height="40"/>
+      <span class="navbar-brand mb-0 h1"> DASHBOARD</span>
     </a>
   </div>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,13 +35,18 @@ const Dashboard = () => {
         </li>
       </ul>
       <form className="d-flex">
-        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button className="btn btn-success" type="submit">Search</button>
+      
       </form>
     </div>
   </div>
 </nav>
       </Box>
+      <div class="mx-4">
+      <center>
+      <img src="adminLogo.png" class="img-fluid" alt=""/>
+      <h2>Welcome To the Admin Panel</h2>
+      </center>
+      </div>
     </Box>
   )
 }
