@@ -60,8 +60,12 @@ const adminBro = new AdminBro({
     handler: async () => {
       return { some: 'output' }
     },
-    component: AdminBro.bundle('./my-dashboard-component.jsx')
+    component: AdminBro.bundle('./my-dashboard-component')
   },
+  branding:{
+    logo:'https://umbeo.com/wp-content/uploads/2021/03/logo.png',
+    companyName:'Umbeo Technologies'
+  }
 })
 
 // const ADMIN = {
@@ -101,16 +105,6 @@ const router = AdminBroExpress.buildAuthenticatedRouter(adminBro, {
   cookiePassword: 'some-secret-password-used-to-secure-cookie',
 })
 
-const adminBroOptions = {
-  databases: [],
-  resources: [],
-  dashboard: {
-    handler: async () => {
-      return { some: 'output' }
-    },
-    component: AdminBro.bundle('./my-dashboard-component')
-  },
-}
 
 // const adminBroOptions = {
 //   databases: [],

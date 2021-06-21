@@ -27,7 +27,7 @@ router.post('/users/jobs' , auth ,  async(req,res)=>{
             userID: user,
         })
         registerJob.save().then(()=>{
-            console.log(registerJob);
+            // console.log(registerJob);
             res.send(registerJob)
         })
     }

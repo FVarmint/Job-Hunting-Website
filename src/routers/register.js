@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const url = 'mongodb+srv://DBuser:abcd@1234@jhwacluster.qqpp7.mongodb.net/userDB?retryWrites=true&w=majority'
+const url = 'mongodb+srv://adminUmbeo:adminpassword@cluster0.8gwk3.mongodb.net/userDB?retryWrites=true&w=majority'
 const user = require('../models/user')
 const router = new express.Router();
 const jwt = require('jsonwebtoken');
