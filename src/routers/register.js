@@ -7,8 +7,8 @@ const jwt = require('jsonwebtoken');
 const config = require("../config/auth.config");
 
 const mailgun = require('mailgun-js');
-const DOMAIN = "sandboxb48a0e6fd409415c827de02d141527be.mailgun.org";
-const mg = mailgun({apiKey: "51dad1cb1e22b9792e9cf4a9a6e323ac-90ac0eb7-ecfa66d4", domain: DOMAIN});
+const DOMAIN = "sandboxa7c206cf460c43e08db1e5d032d67168.mailgun.org";
+const mg = mailgun({apiKey: "33d8533b7b4c5fd6450d1f38f5b5e913-90ac0eb7-6d7d70f0", domain: DOMAIN});
 
 const register = express();
 
@@ -46,7 +46,7 @@ router.post('/register' , async (req,res)=>{
                 from: "noreply@hello.com",
                 to: email,
                 subject: "Umbeo Technologies",
-                html: `Use this link to verify your email: <a href=http://localhost:3000/register/${confirmationCode}>http://localhost:3000/register/${confirmationCode}</a>`,
+                html: `Use this link to verify your email: <a href="http://localhost:3000/register/${confirmationCode}">http://localhost:3000/register/${confirmationCode}</a>`,
             };
             mg.messages().send(data, function (error, body) {
                 console.log(body);

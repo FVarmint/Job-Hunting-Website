@@ -13,7 +13,14 @@ const adminBro = new AdminBro({
   databases: [mongoose],
   resource:[user , job , portfolio],
   rootPath: '/admin',
+  dashboard: {
+    handler: async () => {
+    return { some: 'output' }
+  },
+  component: AdminBro.bundle('./my-dashboard-component')
+},
 })
+
 
 const ADMIN = {
   email: process.env.ADMIN_EMAIL || 'admin@umbeo.com',
@@ -30,5 +37,6 @@ const router = AdminBroExpress.buildAuthenticatedRouter(adminBro, {
     return null
   }
 })
+
 
 module.exports = router
