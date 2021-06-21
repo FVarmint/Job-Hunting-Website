@@ -12,7 +12,7 @@ const applicationRouter = require('./routers/application');
 const app = express();
 const port = process.env.port || 3000;
 
-const viewsPath = path.join(__dirname , '../templates');
+const viewsPath = path.join(__dirname , '../src/templates');
 
 app.use(express.json());
 app.use(registerRouter);
@@ -36,5 +36,5 @@ app.get('/' , (req,res)=>{
 
 
 app.listen(port , ()=>{
-    console.log('Site is up on port ' + port);
+    console.log('App is listening at ' + `http://localhost:${port}`);
 })
