@@ -5,7 +5,7 @@ const job = require('../models/job')
 const user = require('../models/user');
 const portfolio = require("../models/portfolio")
 const bcrypt = require('bcrypt')
-const application = require('../models/application')
+const application = require('../models/application');
 // const admin = new AdminBro(AdminBroOptions);
 
 const mongoose = require('mongoose')
@@ -20,13 +20,42 @@ const admin = mongoose.model('admin', {
 
 // const adminBro = new AdminBro({
 //   databases: [mongoose],
-//   resource:[user , job , portfolio , admin],
+//   resource:[user , job , portfolio , admin , application],
 //   rootPath: '/admin',
 // })
 
 const adminBro = new AdminBro({
   databases:[mongoose],
-  resource:[user , job , portfolio , admin , application],
+  resources: [{
+    resource: user,
+    options: {
+      properties: {
+        encryptedPassword: {
+          isVisible: false,
+        },
+        password: {
+          type: 'string',
+          isVisible: {
+            list: false, edit: true, filter: false, show: false,
+          },
+        },
+      },
+      actions: {
+        new: {
+          before: async (request) => {
+            if(request.payload.password) {
+              request.payload = {
+                ...request.payload,
+                encryptedPassword: await bcrypt.hash(request.payload.password, 8),
+                password: undefined,
+              }
+            }
+            return request
+          },
+        }
+      }
+    }
+  }],
   rootPath: '/admin',
   dashboard: {
     handler: async () => {
@@ -36,8 +65,9 @@ const adminBro = new AdminBro({
   },
   branding:{
     logo:'https://umbeo.com/wp-content/uploads/2021/03/logo.png',
-    companyName:'Umbeo Technologies'
-  }
+    companyName:'Umbeo Technologies',
+    softwareBrothers:false,
+  },
 })
 
 // const ADMIN = {
@@ -76,17 +106,5 @@ const router = AdminBroExpress.buildAuthenticatedRouter(adminBro, {
   },
   cookiePassword: 'some-secret-password-used-to-secure-cookie',
 })
-
-
-// const adminBroOptions = {
-//   databases: [],
-//   resources: [],
-//   dashboard: {
-//     handler: async () => {
-//       return { some: 'output' }
-//     },
-//     component: AdminBro.bundle('./my-dashboard-component')
-//   },
-// }
 
 module.exports = router
