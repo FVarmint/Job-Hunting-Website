@@ -5,6 +5,7 @@ const job = require('../models/job')
 const user = require('../models/user');
 const portfolio = require("../models/portfolio")
 const bcrypt = require('bcrypt')
+const application = require('../models/application')
 // const admin = new AdminBro(AdminBroOptions);
 
 const mongoose = require('mongoose')
@@ -25,36 +26,7 @@ const admin = mongoose.model('admin', {
 
 const adminBro = new AdminBro({
   databases:[mongoose],
-  resources: [{
-    resource: user,
-    options: {
-      properties: {
-        encryptedPassword: {
-          isVisible: false,
-        },
-        password: {
-          type: 'string',
-          isVisible: {
-            list: false, edit: true, filter: false, show: false,
-          },
-        },
-      },
-      actions: {
-        new: {
-          before: async (request) => {
-            if(request.payload.password) {
-              request.payload = {
-                ...request.payload,
-                encryptedPassword: await bcrypt.hash(request.payload.password, 8),
-                password: undefined,
-              }
-            }
-            return request
-          },
-        }
-      }
-    }
-  }],
+  resource:[user , job , portfolio , admin , application],
   rootPath: '/admin',
   dashboard: {
     handler: async () => {
