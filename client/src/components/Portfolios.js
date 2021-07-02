@@ -1,12 +1,16 @@
 import React , { useState } from 'react'
 import Navbar from './Navbar'
 import { useHistory } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
-const Portfolios = ()=>{
+const Portfolios = (req)=>{
   const history = useHistory();
     const [user , setUser] = useState({
         name:"",email:"",phone:"",address:"",education:"",profile:"",skillsets:"",projects:"",projectDiscription:"",linkedinProfile:"",workSampleLink:""
     });
+
+    
+
     let name , value;
 
     const handleInputs = (e) => {
@@ -19,12 +23,17 @@ const Portfolios = ()=>{
     
     const PostData = async (e)=>{
         e.preventDefault();
-        const { name , email , phone , address, education, profile, skillsets, projects, projectDiscription, linkedinProfile, workSampleLink } = user;
-  
+        const { name , email , phone , address, education, profile, skillset, projects, projectDiscription, linkedinProfile, workSampleLink } = user;
+
+        const authToken = Cookies.get("jwttoken");
+        console.log(authToken);
+        // 
+
         const res = await fetch("/users/portfolios" , {
           method: "POST",
           headers: {
-            "content-type": "application/json"
+            "content-type": "application/json",
+            "Authorization" : `Bearer ${authToken}`
           },
           body: JSON.stringify({
             name,
@@ -33,7 +42,7 @@ const Portfolios = ()=>{
             address,
             education,
             profile,
-            skillsets,
+            skillset,
             projects,
             projectDiscription,
             linkedinProfile,
@@ -42,15 +51,15 @@ const Portfolios = ()=>{
         })
 
         const data = await res.json();
-      console.log(data)
+      // console.log(data)
 
       if(res.status===400 || !data){
         window.alert("Details not valid")
         console.log("Details not valid")
       }
       else{
-        window.alert("Please fill required entries");
-        console.log("Please fill required entries")
+        window.alert("Portfolio saved");
+        console.log("Portfolio saved")
 
         history.push("/")
       }

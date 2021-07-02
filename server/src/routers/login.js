@@ -15,6 +15,11 @@ router.post('/users/login' , async (req , res)=>{
     try{
         const User = await user.findByCredentials(req.body.username , req.body.password);
         const token = await User.generateAuthToken();
+
+        res.cookie("jwttoken" , token , {
+          expires: new Date(Date.now() + 25892000000)
+        })
+        
         // console.log(req.body.username);
         if (User.status != "Active") {
             return res.status(401).send({

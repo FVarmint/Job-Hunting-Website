@@ -24,7 +24,7 @@ router.post('/forgotpassword' , async(req , res)=>{
     res.send(User);
     // const userId = User._id;
     // console.log(userId)
-    const token = await jwt.sign({_id:User._id}, config.secret , {expiresIn:'5m'})
+    const token = await jwt.sign({_id:User._id}, config.passwordSecretCode , {expiresIn:'5m'})
     const data = transporter.sendMail({
         from: "techumbeo@gmail.com",
         to: email,
@@ -46,7 +46,7 @@ router.patch('/changepassword/:token' , async (req , res) => {
     }
     try{
         const token = req.params.token;
-        const decode = jwt.verify(token , config.secret);
+        const decode = jwt.verify(token , config.passwordSecretCode);
         const id = decode._id;
         // console.log(id);
         const User = await user.findById({_id:id})

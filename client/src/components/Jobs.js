@@ -1,6 +1,7 @@
 import React , {useState} from 'react'
 import Navbar from './Navbar'
 import { useHistory } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 const Jobs = () => {
     const history = useHistory();
@@ -20,11 +21,15 @@ const Jobs = () => {
     const PostData = async (e)=>{
         e.preventDefault();
         const { companyName , profile , jobDescription , experience , jobDetails , jobLocation } = job;
-  
+
+        const authToken = Cookies.get("jwttoken");
+        console.log(authToken);
+
         const res = await fetch("/users/jobs" , {
           method: "POST",
           headers: {
-            "content-type": "application/json"
+            "content-type": "application/json",
+            "Authorization" : `Bearer ${authToken}`
           },
           body: JSON.stringify({
             companyName,
@@ -44,8 +49,8 @@ const Jobs = () => {
         console.log("Invalid details")
       }
       else{
-        window.alert("Please fill required entries");
-        console.log("Please fill required entries")
+        window.alert("Job Details Saved");
+        console.log("Job Details Saved");
 
         history.push("/")
       }

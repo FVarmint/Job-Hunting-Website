@@ -6,6 +6,7 @@ const url = 'mongodb://localhost/portfolios'
 const mongoose = require('mongoose');
 const auth = require('../middleware/auth'); 
 const bodyParser = require('body-parser');
+const { check, validationResult } = require('express-validator');
 
 // const portfolio = express();
 // mongoose.connect(url , {useNewUrlParser:true, useUnifiedTopology:true, useCreateIndex: true , useFindAndModify:false})
@@ -15,16 +16,35 @@ const bodyParser = require('body-parser');
 //     console.log('portfolioDB connected')
 // })
 
-router.post('/users/portfolios' , auth ,  async(req,res)=>{
+router.post('/users/portfolios' , auth, [
+    check('email', 'not a valid email address')
+        .isEmail()
+        .normalizeEmail(),
+
+    check('phone', 'Please enter a valid phone number')
+        .isMobilePhone(),
+
+    // check('linkedinProfile', 'Not a valid URL')
+    //     .isURL(),
+
+    // check('workSampleProfile', 'Not a valid URL')
+    //     .isURL(),
+], async(req,res)=>{
     try{
         const user = req.User._id;
         const registerportfolio = await new portfolio({
             name: req.body.name,
             email: req.body.email,
-            // portfolioDescription: req.body.portfolioDescription,
-            // experience: req.body.experience,
-            // portfolioDetails: req.body.portfolioDetails,
-            // portfolioLocation: req.body.portfolioLocation,
+            phone: req.body.phone,
+            address: req.body.address,
+            education: req.body.education,
+            profile: req.body.profile,
+            // resume: req.body.resume,
+            skillset: req.body.skillset,
+            projects: req.body.projects,
+            projectDiscription: req.body.projectDiscription,
+            linkedinProfile: req.body.linkedinProfile,
+            workSampleLink: req.body.workSampleLink,
             userID: user,
         })
         registerportfolio.save().then(()=>{
@@ -39,7 +59,7 @@ router.post('/users/portfolios' , auth ,  async(req,res)=>{
 })
 router.patch('/portfolios/update/:id', async (req, res) => {
     const updates = Object.keys(req.body)
-    const allowedUpdates = ['companyName', 'portfolioDescription', 'profile', 'experience', 'portfolioDetails', 'portfolioLocation']
+    const allowedUpdates = ['name', 'email', 'phone', 'address', 'education', 'profile', 'skillset' , 'projects', 'projectDiscription' , 'linkedinProfile','workSampleLink']
     const isValidOperation = updates.every((update) => allowedUpdates.includes(update))
 
     if (!isValidOperation) {
