@@ -29,14 +29,14 @@ router.post('/forgotpassword' , async(req , res)=>{
         from: "techumbeo@gmail.com",
         to: email,
         subject: "Change Password",
-        html: `Use this link to update your password: <a href=http://localhost:5000/forgotpassword/${token}>Click here</a>`
+        html: `Use this link to update your password: <a href=http://localhost:3000/changepassword/${token}>Click here</a>`
     });
     transporter.sendMail(data, function(error, info){
       // console.log(info);
     });
 })
 
-router.patch('/forgotpassword/:token' , async (req , res) => {
+router.patch('/changepassword/:token' , async (req , res) => {
     const updates = Object.keys(req.body)
     const allowedUpdates = ['password']
     const isValidOperation = updates.every((update) => allowedUpdates.includes(update))

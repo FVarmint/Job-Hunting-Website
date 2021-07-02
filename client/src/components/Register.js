@@ -68,7 +68,7 @@ const Register = ()=>{
     return(
         <>
         <Navbar/>
-<div className="mx-4">
+<div className="mt-2 col-md-12 mx-4">
 <form action="/register" method="POST">
 <div className="mb-3">
     <label for="username" className="form-label">Username</label>

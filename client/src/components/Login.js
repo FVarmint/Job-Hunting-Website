@@ -1,6 +1,7 @@
 import React , {useState} from 'react'
 import Navbar from './Navbar'
 import { useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
 
@@ -71,9 +72,8 @@ const Login = () => {
     onChange={handleInputs}
     />
   </div>
-  <div className="mb-3 form-check">
-    <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
-    <label className="form-check-label" for="exampleCheck1">Check me out</label>
+  <div className="mb-3">
+  <Link to="/forgotpassword">forgotpassword?</Link>
   </div>
   <input class="btn btn-primary" type="submit" value="Login"
   onClick={PostData}/>
