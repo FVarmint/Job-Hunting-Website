@@ -60,6 +60,15 @@ router.get('/jobs/:id' ,auth ,  async(req,res)=>{
 
 })
 
+router.get('/displayjobs' , (req , res)=>{
+    // console.log("working")
+    job.find({}).then((jobs)=>{
+        res.status(200).send(jobs);
+    }).catch((e)=>{
+        res.status(400).send(e);
+    })
+})
+
 router.post('/jobsbyuser' , auth, async(req,res)=>{
     //const User._id = req.params.id;
     const user = req.User._id;

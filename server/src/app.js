@@ -4,7 +4,7 @@ const registerRouter = require('./routers/register');
 const loginRouter = require('./routers/login');
 const usersRouter = require('./routers/users');
 const adminRouter = require('./routers/admin');
-const bodyParser = require('body-parser');
+// const bodyParser = require('body-parser');
 const portfolioRouter = require('./routers/portfolio'); 
 const jobRouter = require('./routers/job');
 const applicationRouter = require('./routers/application');
@@ -17,6 +17,7 @@ const port = process.env.PORT || 5000;
 
 const viewsPath = path.join(__dirname , '../src/templates');
 
+app.use(cors());
 app.use(express.json());
 app.use(registerRouter);
 app.use(loginRouter);
@@ -26,8 +27,7 @@ app.use(jobRouter);
 app.use(portfolioRouter);
 app.use(applicationRouter);
 app.use(forgotPasswordRouter);
-app.use(cors());
-app.use(bodyParser.json())
+// app.use(bodyParser.json())
 app.use(express.urlencoded({extended:false}));
 
 app.set('view engine' , 'hbs')

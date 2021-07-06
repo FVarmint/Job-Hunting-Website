@@ -6,6 +6,8 @@ import Jobs from './components/Jobs';
 import Portfolios from './components/Portfolios'
 import ForgotPassword from './components/ForgotPassword';
 import ChangePassword from './components/ChangePassword';
+import UpdateProfile from './components/UpdateProfile';
+import DisplayJobs from './components/DisplayJobs';
 
 const App = () => {
   return (
@@ -32,6 +34,14 @@ const App = () => {
 
       <Route exact path="/changepassword/:token">
         <ChangePassword/>
+      </Route>
+
+      <Route path="/updateprofile">
+        <UpdateProfile/>
+      </Route>
+
+      <Route path="/displayjobs">
+        <DisplayJobs/>
       </Route>
     </>
   )
