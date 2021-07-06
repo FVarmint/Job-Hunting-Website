@@ -93,4 +93,12 @@ router.get('/users/portfolios/:id', (req,res,next)=>{
     })
 })
 
+router.get('/displayportfolios' , (req , res)=>{
+    portfolio.find({}).then((portfolios)=>{
+        res.status(200).send(portfolios)
+    }).catch((e)=>{
+        res.status(400).send(e);
+    })
+})
+
 module.exports = router

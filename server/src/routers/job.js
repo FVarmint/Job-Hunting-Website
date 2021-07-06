@@ -69,7 +69,7 @@ router.get('/displayjobs' , (req , res)=>{
     })
 })
 
-router.post('/jobsbyuser' , auth, async(req,res)=>{
+router.get('/jobsbyuser' , auth, async(req,res)=>{
     //const User._id = req.params.id;
     const user = req.User._id;
     job.find({userID:user}).then((job)=>{

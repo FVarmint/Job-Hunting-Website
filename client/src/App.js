@@ -8,6 +8,8 @@ import ForgotPassword from './components/ForgotPassword';
 import ChangePassword from './components/ChangePassword';
 import UpdateProfile from './components/UpdateProfile';
 import DisplayJobs from './components/DisplayJobs';
+import DisplayPortfolios from './components/DisplayPortfolios';
+import DisplayJobsByUser from './components/DisplayJobsByUser';
 
 const App = () => {
   return (
@@ -42,6 +44,14 @@ const App = () => {
 
       <Route path="/displayjobs">
         <DisplayJobs/>
+      </Route>
+
+      <Route path="/displayportfolios">
+        <DisplayPortfolios/>
+      </Route>
+
+      <Route path="/displayjobsbyuser">
+        <DisplayJobsByUser/>
       </Route>
     </>
   )
