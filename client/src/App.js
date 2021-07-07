@@ -10,6 +10,8 @@ import UpdateProfile from './components/UpdateProfile';
 import DisplayJobs from './components/DisplayJobs';
 import DisplayPortfolios from './components/DisplayPortfolios';
 import DisplayJobsByUser from './components/DisplayJobsByUser';
+import DisplayPortfoliosByUser from './components/DisplayPortfoliosByUser';
+
 
 const App = () => {
   return (
@@ -53,6 +55,11 @@ const App = () => {
       <Route path="/displayjobsbyuser">
         <DisplayJobsByUser/>
       </Route>
+
+      <Route path="/displayportfoliosbyuser">
+        <DisplayPortfoliosByUser/>
+      </Route>
+
     </>
   )
 }

@@ -99,6 +99,14 @@ router.get('/displayportfolios' , (req , res)=>{
     }).catch((e)=>{
         res.status(400).send(e);
     })
+}) 
+
+router.get('/portfoliosbyuser' , auth, async(req,res)=>{
+    //const User._id = req.params.id;
+    const user = req.User._id;
+    portfolio.find({userID:user}).then((portfolio)=>{
+        res.send(portfolio);
+    })
 })
 
 module.exports = router
