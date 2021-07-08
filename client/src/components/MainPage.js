@@ -56,52 +56,52 @@ const MainPage = () => {
             <div className="split left">
   <div className="centered">
   <div className="users">
-  <div class="card">
-  <div class="card-body">
-    <h5 class="card-title">Hello, {user.username}</h5>
-    {/* <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> */}
-    <p class="card-text">{user.email}</p>
-    <a href="/updateprofile" class="card-link">update profile</a>
-    <a href="#" class="card-link">Another link</a>
+  <div className="card">
+  <div className="card-body">
+    <h5 className="card-title">Hello, {user.username}</h5>
+    {/* <h6 className="card-subtitle mb-2 text-muted">Card subtitle</h6> */}
+    <p className="card-text">{user.email}</p>
+    <a href="/updateprofile" className="card-link">update profile</a>
+    <a href="#" className="card-link">Another link</a>
   </div>
 </div>
     </div> 
     <div className="mt-xl-4">
   <a href="/jobs">  
-    <button type="button" class="btn btn-primary">Add Job</button>  
+    <button type="button" className="btn btn-primary">Add Job</button>  
   </a></div>
   <div className="mt-xl-4">
   <a href="/portfolio">  
-    <button type="button" class="btn btn-primary">Create Portfolio</button>  
+    <button type="button" className="btn btn-primary">Create Portfolio</button>  
   </a></div>
   </div>
 </div>
 
 <div className="split right">
-<div class="row">
+<div className="row">
 <h3>Jobs Uploaded By You</h3>
 {jobs.map((job) => (
-        <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">{job.profile}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">{job.companyName}</h6>
-          <p class="card-text">{job.description}</p>
-          {/* <a href="#" class="btn btn-primary">Apply</a> */}
-          {/* <a href="#" class="card-link">Another link</a> */}
+        <div className="card">
+        <div className="card-body">
+          <h5 className="card-title">{job.profile}</h5>
+          <h6 className="card-subtitle mb-2 text-muted">{job.companyName}</h6>
+          <p className="card-text">{job.description}</p>
+          {/* <a href="#" className="btn btn-primary">Apply</a> */}
+          {/* <a href="#" className="card-link">Another link</a> */}
         </div>
       </div>
       ))}
 
-<div class="row">
+<div className="row">
     <h3>Portfolios Uploaded By You</h3>
       {portfolios.map((portfolio) => (
-        <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">{portfolio.name}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">{portfolio.profile}</h6>
-          <p class="card-text">{portfolio.education}</p>
-          {/* <a href="#" class="btn btn-primary">Apply</a> */}
-          {/* <a href="#" class="card-link">Another link</a> */}
+        <div className="card w-200">
+        <div className="card-body">
+          <h5 className="card-title">{portfolio.name}</h5>
+          <h6 className="card-subtitle mb-2 text-muted">{portfolio.profile}</h6>
+          <p className="card-text">{portfolio.education}</p>
+          {/* <a href="#" className="btn btn-primary">Apply</a> */}
+          {/* <a href="#" className="card-link">Another link</a> */}
         </div>
       </div>
       ))}
