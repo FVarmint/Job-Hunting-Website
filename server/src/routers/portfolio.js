@@ -48,7 +48,7 @@ router.post('/users/portfolios' , auth, [
             userID: user,
         })
         registerportfolio.save().then(()=>{
-            console.log(registerportfolio);
+            // console.log(registerportfolio);
             res.send(registerportfolio)
         })
     }

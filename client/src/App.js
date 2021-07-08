@@ -11,6 +11,7 @@ import DisplayJobs from './components/DisplayJobs';
 import DisplayPortfolios from './components/DisplayPortfolios';
 import DisplayJobsByUser from './components/DisplayJobsByUser';
 import DisplayPortfoliosByUser from './components/DisplayPortfoliosByUser';
+import MainPage from './components/MainPage';
 
 
 const App = () => {
@@ -60,6 +61,9 @@ const App = () => {
         <DisplayPortfoliosByUser/>
       </Route>
 
+      <Route path="/mainpage">
+        <MainPage/>
+      </Route>
     </>
   )
 }
