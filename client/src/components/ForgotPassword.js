@@ -1,6 +1,6 @@
 import React , {useState} from 'react'
-import Navbar from './Navbar'
 import { useHistory } from "react-router-dom"
+import Header from './Header';
 
 const ForgotPassword = () => {
 
@@ -51,7 +51,7 @@ const ForgotPassword = () => {
 
     return (
         <>
-            <Navbar/>
+            <Header title="Forgot Password"/>
             <form action="/forgotpassword" method="POST">
   <div className="mx-4">
     <label for="exampleInputEmail1" class="form-label">Email address</label>

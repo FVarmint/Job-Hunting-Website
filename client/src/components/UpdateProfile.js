@@ -1,8 +1,7 @@
 import React , {useState} from 'react'
-import Navbar from './Navbar'
 import { useHistory } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 import Cookies from 'js-cookie'
+import Header from './Header';
 
 
 const UpdateProfile = () => {
@@ -57,7 +56,7 @@ const UpdateProfile = () => {
 
     return (
         <>
-          <Navbar/>
+          <Header title="Update Profile"/>
           <div className="mx-4 mt-4">
           <div class="row g-3 align-items-center">
   <div class="col-auto">

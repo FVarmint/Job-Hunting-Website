@@ -1,7 +1,7 @@
 import React , { useState , useEffect} from 'react'
 import axios from 'axios';
-import Navbar from './Navbar';
 import Cookies from 'js-cookie'
+import Header from './Header';
 
 const DisplayPortfoliosByUser = () => {
 
@@ -26,7 +26,7 @@ const DisplayPortfoliosByUser = () => {
   },[])
     return (
         <>
-          <Navbar/> 
+          <Header title="Portfolios Created By You"/> 
           <div className="portfolios">
       {portfolios.map((portfolio) => (
         <div class="card">

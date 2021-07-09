@@ -1,5 +1,5 @@
 import React , {useState} from 'react'
-import Navbar from './Navbar'
+import Header from './Header'
 import { useHistory } from 'react-router';
 import { useParams } from 'react-router-dom';
 
@@ -59,7 +59,7 @@ const ChangePassword = () => {
 
     return (
         <>
-          <Navbar/>  
+          <Header title="Change Password"/>  
           <div className="mx-4">
           <div className="row g-3 align-items-center">
   <div className="col-auto">

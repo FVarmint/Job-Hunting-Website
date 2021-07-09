@@ -1,12 +1,12 @@
 import React from 'react'
-import { Navbar, Brand, Toggle, Collapse, Link, Nav, NavDropdown, Item, Divider, Form, Button, FormControl} from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown, Form, Button, FormControl} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const NavigationBar = () => {
+const Header = (props) => {
     return (
       
       <Navbar bg="light" expand="lg">
-      <Navbar.Brand href="#home">Job Hunting Website</Navbar.Brand>
+      <Navbar.Brand href="#">{props.title}</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
@@ -19,14 +19,16 @@ const NavigationBar = () => {
             <NavDropdown.Divider />
             <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
           </NavDropdown>
+          <Nav.Link href="/logout">Logout</Nav.Link>
         </Nav>
-        <Form inline>
+        {props.searchBar?<Form inline>
           <FormControl type="text" placeholder="Search" className="mr-sm-2" />
           <Button variant="outline-success">Search</Button>
-        </Form>
+        </Form>:""}
+        <Navbar.Brand href="#">{props.loggedInUser}</Navbar.Brand>
       </Navbar.Collapse>
     </Navbar>
     )
 }
 
-export default NavigationBar
+export default Header

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import Navbar from './Navbar'
 import { useHistory } from 'react-router-dom';
 import validator from 'validator'
+import Header from './Header';
 
 const Register = ()=>{
   const history = useHistory();
@@ -67,7 +67,7 @@ const Register = ()=>{
 
     return(
         <>
-        <Navbar/>
+        <Header title="Registration Page"/>
 <div className="mt-2 col-md-12 mx-4">
 <form action="/register" method="POST">
 <div className="mb-3">

@@ -1,14 +1,14 @@
 import React , { useState , useEffect} from 'react'
 import axios from 'axios';
-import Navbar from './Navbar';
 import Cookies from 'js-cookie'
+import Header from './Header';
 
 const DisplayJobsByUser = () => {
 
     const [jobs , setJobs] = useState([]);
 
     const authToken = Cookies.get("jwttoken");
-    console.log(authToken);
+    // console.log(authToken);
 
     const apiUrl = 'http://localhost:5000/jobsbyuser';
     const fetchData = async () => {
@@ -26,7 +26,7 @@ const DisplayJobsByUser = () => {
   },[])
     return (
         <>
-          <Navbar/> 
+          <Header title="Jobs Uploaded by You"/> 
           <div className="jobs">
       {jobs.map((job) => (
         <div class="card">

@@ -12,6 +12,7 @@ import DisplayPortfolios from './components/DisplayPortfolios';
 import DisplayJobsByUser from './components/DisplayJobsByUser';
 import DisplayPortfoliosByUser from './components/DisplayPortfoliosByUser';
 import MainPage from './components/MainPage';
+import Logout from './components/Logout';
 
 
 const App = () => {
@@ -63,6 +64,10 @@ const App = () => {
 
       <Route path="/mainpage">
         <MainPage/>
+      </Route>
+
+      <Route path="/logout">
+        <Logout/>
       </Route>
     </>
   )

@@ -35,13 +35,14 @@ router.post('/users/login' , async (req , res)=>{
     }
 })
 
-router.post('/users/logout', auth, async (req, res) => {
+router.get('/users/logout', auth, async (req, res) => {
   try {
       req.User.tokens = req.User.tokens.filter((token) => {
           return token.token !== req.token;
       })
       await req.User.save()
-      res.send()
+      res.clearCookie('jwttoken' , {path:"/"})
+      res.status(200).send("Logged Out")
   } catch (e) {
       res.status(500).send()
   }

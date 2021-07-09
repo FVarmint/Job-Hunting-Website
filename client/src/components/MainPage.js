@@ -1,8 +1,8 @@
 import React , { useState , useEffect} from 'react'
 import axios from 'axios';
-import Navbar from './Navbar';
 import Cookies from 'js-cookie'
 import './MainPage.css'
+import Header from './Header';
 
 const MainPage = () => {
 
@@ -50,9 +50,10 @@ const MainPage = () => {
     fetchDataJobs();
     fetchDataPortfolios();
   },[])
+
     return (
         <>
-        <Navbar/>
+        <Header title="Job Hunting Website" searchBar={false} loggedInUser={user.username}/>
             <div className="split left">
   <div className="centered">
   <div className="users">
@@ -66,14 +67,19 @@ const MainPage = () => {
   </div>
 </div>
     </div> 
-    <div className="mt-xl-4">
+    <div className="mt-4">
   <a href="/jobs">  
     <button type="button" className="btn btn-primary">Add Job</button>  
   </a></div>
-  <div className="mt-xl-4">
+  <div className="mt-4">
   <a href="/portfolio">  
     <button type="button" className="btn btn-primary">Create Portfolio</button>  
   </a></div>
+  <div className="mt-4">
+  <a href="/displayjobs">  
+    <button type="button" className="btn btn-primary">Find Jobs</button>  
+  </a>
+  </div>
   </div>
 </div>
 

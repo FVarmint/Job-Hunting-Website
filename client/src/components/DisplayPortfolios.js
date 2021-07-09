@@ -1,6 +1,6 @@
 import React , { useState , useEffect} from 'react'
 import axios from 'axios';
-import Navbar from './Navbar';
+import Header from './Header';
 
 const DisplayPortfolios = () => {
 
@@ -19,7 +19,7 @@ const DisplayPortfolios = () => {
 
     return (
         <>
-          <Navbar/>  
+          <Header title="Portfolios"/>  
           <div className="jobs">
       {portfolios.map((portfolio) => (
         <div class="card">

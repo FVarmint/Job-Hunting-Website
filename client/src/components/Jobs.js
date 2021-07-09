@@ -1,7 +1,7 @@
 import React , {useState} from 'react'
-import Navbar from './Navbar'
 import { useHistory } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import Header from './Header';
 
 const Jobs = () => {
     const history = useHistory();
@@ -58,7 +58,7 @@ const Jobs = () => {
 
     return (
         <>
-        <Navbar/>
+        <Header title="Jobs"/>
 <div className="mx-4">
 <form action="/register" method="POST">
 <div className="mb-3">

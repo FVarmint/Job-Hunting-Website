@@ -1,7 +1,7 @@
 import React , {useState} from 'react'
-import Navbar from './Navbar'
 import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import Header from './Header';
 
 const Login = () => {
 
@@ -46,13 +46,13 @@ const Login = () => {
         window.alert("Login Successful");
         console.log("Login Successful")
 
-        history.push("/jobs")
+        history.push("/mainpage")
       }
     }
 
     return (
         <>
-            <Navbar/>
+            <Header title="Login Page"/>
             <div className="mx-4">
             <form action="/users/login" method="POST">
   <div className="mb-3">
