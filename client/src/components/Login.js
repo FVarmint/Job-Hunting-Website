@@ -38,9 +38,9 @@ const Login = () => {
       const data = await res.json();
       console.log(data)
 
-      if(res.status == 400 || !data){
-        window.alert("Invalid Details")
-        console.log("Invalid details")
+      if(res.status===400 || !data ||res.status===401){
+        window.alert("Something is Wrong!")
+        console.log("Something is Wrong!")
       }
       else{
         window.alert("Login Successful");

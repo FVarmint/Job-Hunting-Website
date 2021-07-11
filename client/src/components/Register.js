@@ -1,12 +1,11 @@
 import React, {useState} from 'react';
 import { useHistory } from 'react-router-dom';
 import validator from 'validator'
-import Header from './Header';
 
 const Register = ()=>{
   const history = useHistory();
     const [user , setUser] = useState({
-        username:"",email:"",password:"",confirmPassword:""
+        username:"", email:"", password:"",confirmPassword:"", phoneNumber:"", age:"" , gender:"" , userImage:""
     });
 
     let name , value;
@@ -21,7 +20,7 @@ const Register = ()=>{
 
     const PostData = async (e)=>{
       e.preventDefault();
-      const { username , email , password , confirmPassword } = user;
+      const { username , email , password , confirmPassword , age, phoneNumber, gender, userImage } = user;
 
       const res = await fetch("/register" , {
         method: "POST",
@@ -32,7 +31,11 @@ const Register = ()=>{
           username,
           email, 
           password, 
-          confirmPassword
+          confirmPassword,
+          phoneNumber,
+          age,
+          gender,
+          userImage
         })
       })
 
@@ -67,9 +70,8 @@ const Register = ()=>{
 
     return(
         <>
-        <Header title="Registration Page"/>
 <div className="mt-2 col-md-12 mx-4">
-<form action="/register" method="POST">
+<form action="/register" method="POST" encType="multipart/form-data">
 <div className="mb-3">
     <label for="username" className="form-label">Username</label>
     <input type="username" className="form-control" id="usernameRegister" 
@@ -100,21 +102,82 @@ const Register = ()=>{
   </div>
   <div className="mb-3">
     <label for="password" className="form-label">Confirm Password</label>
-    <input type="password" className="form-control" id="confirmPassword" name="confirmPassword"
+    <input type="password" className="form-control" id="confirmPassword" 
+    name="confirmPassword"
     value={user.confirmPassword}
     onChange={handleInputs}
     />
   </div>
-  <div className="mb-3 form-check">
+  
+  <div className="form-outline">
+                  <label className="form-label" for="phoneNumber">Phone Number</label>
+                    <input type="tel" id="phoneNumber" className="form-control form-control-lg"
+                    name="phoneNumber"
+                    value={user.phoneNumber}
+                    onChange={handleInputs} 
+                    />
+                  </div>
+                  <div className="form-outline">
+                  <label className="form-label" for="age">Age</label>
+                    <input type="tel" id="phoneNumber" className="form-control form-control-lg"
+                    name="age"
+                    value={user.age}
+                    onChange={handleInputs} 
+                    />
+                  </div>
+  
+  <h6 className="mb-0 me-4">Gender: </h6>
+
+                  <div className="form-check form-check-inline mb-0 me-4">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name="gender"
+                      id="femaleGender"
+                      value="Female"
+                      onChange={handleInputs}
+                    />
+                    <label className="form-check-label" for="femaleGender">Female</label>
+                  </div>
+
+                  <div className="form-check form-check-inline mb-0 me-4">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name="gender"
+                      id="maleGender"
+                      value="Male"
+                      onChange={handleInputs}
+                    />
+                    <label className="form-check-label" for="maleGender">Male</label>
+                  </div>
+
+                  <div className="form-check form-check-inline mb-0">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name="gender"
+                      id="otherGender"
+                      value="Other"
+                      onChange={handleInputs}
+                    />
+                    <label className="form-check-label" for="otherGender">Other</label>
+                  </div>
+                  <div className="form-group">
+                    <label for="file">Choose Image for User</label>
+                    <input type="file" name="userImage"/>
+                    </div>
+                  <div className="mb-3 form-check">
     <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
     <label className="form-check-label" for="exampleCheck1">Check me out</label>
   </div>
-  <div className="form-group form-button">
+                  <div className="form-group form-button">
     <input type="submit" name="register" id="registerButton" className="btn btn-primary"
     value="Register" 
     onClick={PostData}
     />
   </div>
+
 </form>
 </div>
         </>

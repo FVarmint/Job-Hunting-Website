@@ -6,6 +6,7 @@ const router = new express.Router();
 const jwt = require('jsonwebtoken');
 const config = require("../config/auth.config");
 const nodemailer = require("nodemailer");
+const multer = require('multer');
 
 //  const mailgun = require('mailgun-js');
 //  const DOMAIN = "sandboxab158520fb3a41c1a6ab9c1d549b4eb1.mailgun.org";
@@ -28,6 +29,28 @@ var transporter = nodemailer.createTransport({
   }
 });
 
+// const storage = multer.diskStorage({
+//   destination: function(req, file, cb) {
+//       cb(null, 'images');
+//   },
+//   filename: function(req, file, cb) {   
+//       cb(null, uuidv4() + '-' + Date.now() + path.extname(file.originalname));
+//   }
+// });
+
+// const fileFilter = (req, file, cb) => {
+//   const allowedFileTypes = ['image/jpeg', 'image/jpg', 'image/png'];
+//   if(allowedFileTypes.includes(file.mimetype)) {
+//       cb(null, true);
+//   } else {
+//       cb(null, false);
+//   }
+// }
+
+// let upload = multer({ storage, fileFilter });
+// // upload.single('userImage')
+
+
 router.post('/register' , async (req,res)=>{
     try{
         const token = await jwt.sign({email: req.body.email}, config.secret)
@@ -36,6 +59,10 @@ router.post('/register' , async (req,res)=>{
             username: req.body.username,
             email: req.body.email,
             password:req.body.password,
+            phoneNumber: req.body.phoneNumber,
+            age: req.body.age,
+            gender: req.body.gender,
+            // userImage: req.file.filename,
             confirmationCode: token
           });
         

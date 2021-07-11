@@ -18,7 +18,7 @@ const users = express();
 //     }
 // })
 
-router.get('/users' , auth , async(req , res)=>{
+router.get('/users' , async(req , res)=>{
     user.find({}).then((users)=>{
         // console.log(users);
         res.status(200).send(users);
