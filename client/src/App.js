@@ -13,6 +13,7 @@ import DisplayJobsByUser from './components/DisplayJobsByUser';
 import DisplayPortfoliosByUser from './components/DisplayPortfoliosByUser';
 import MainPage from './components/MainPage';
 import Logout from './components/Logout';
+import VerifiedSuccessfully from './components/VerifiedSuccessfully';
 
 
 const App = () => {
@@ -68,6 +69,10 @@ const App = () => {
 
       <Route path="/logout">
         <Logout/>
+      </Route>
+
+      <Route exact path="/verifyuser/:confirmationCode">
+        <VerifiedSuccessfully/>
       </Route>
     </>
   )

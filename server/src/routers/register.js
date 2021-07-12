@@ -79,7 +79,7 @@ router.post('/register' , async (req,res)=>{
               from: "techumbeo@gmail.com",
               to: email,
               subject: "Umbeo Technologies",
-              html: `Use this link to verify your email: <a href=http://localhost:5000/register/${confirmationCode}>Click here</a>`
+              html: `Use this link to verify your email: <a href=http://localhost:3000/verifyuser/${confirmationCode}>Click here</a>`
           });
           transporter.sendMail(data, function(error, info){
             // console.log(info);
