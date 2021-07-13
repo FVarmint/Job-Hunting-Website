@@ -7,7 +7,7 @@ const VerifiedSuccessfully = () => {
     const history = useHistory();
 
     const verifyUser = async()=>{
-        const res = await fetch('/register/'+confirmationCode , {
+        await fetch('/register/'+confirmationCode , {
             method:"GET",
             headers:{
                 "content-type":"application/json",
