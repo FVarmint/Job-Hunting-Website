@@ -106,8 +106,12 @@ const MainPage = () => {
           <h5 className="card-title">{portfolio.name}</h5>
           <h6 className="card-subtitle mb-2 text-muted">{portfolio.profile}</h6>
           <p className="card-text">{portfolio.education}</p>
+          {/* <p className="card-text">{portfolio._id}</p> */}
+
           {/* <a href="#" className="btn btn-primary">Apply</a> */}
           {/* <a href="#" className="card-link">Another link</a> */}
+          <a href={`/updateportfolios/${portfolio._id}`} className="card-link">update portfolio</a>
+
         </div>
       </div>
       ))}

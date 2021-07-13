@@ -14,7 +14,7 @@ import DisplayPortfoliosByUser from './components/DisplayPortfoliosByUser';
 import MainPage from './components/MainPage';
 import Logout from './components/Logout';
 import VerifiedSuccessfully from './components/VerifiedSuccessfully';
-
+import UpdatePortfolio from './components/UpdatePortfolio';
 
 const App = () => {
   return (
@@ -73,6 +73,10 @@ const App = () => {
 
       <Route exact path="/verifyuser/:confirmationCode">
         <VerifiedSuccessfully/>
+      </Route>
+
+      <Route exact path="/updateportfolios/:id">
+        <UpdatePortfolio/>
       </Route>
     </>
   )

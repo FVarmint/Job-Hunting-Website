@@ -57,6 +57,7 @@ router.post('/users/portfolios' , auth, [
         res.status(400).send(error);
     }
 })
+
 router.patch('/portfolios/update/:id', async (req, res) => {
     const updates = Object.keys(req.body)
     const allowedUpdates = ['name', 'email', 'phone', 'address', 'education', 'profile', 'skillset' , 'projects', 'projectDiscription' , 'linkedinProfile','workSampleLink']
@@ -65,15 +66,15 @@ router.patch('/portfolios/update/:id', async (req, res) => {
     if (!isValidOperation) {
         return res.status(400).send({ error: 'Invalid updates!' })
     }
-
+ 
     try {
-        const portfolio = await portfolio.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true })
+        const Portfolio = await portfolio.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true })
     
-        if (!portfolio) {
+        if (!Portfolio) {
             return res.status(404).send()
         }
 
-        res.send(portfolio)
+        res.send(Portfolio)
     } catch (e) {
         res.status(400).send(e)
     }
