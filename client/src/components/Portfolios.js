@@ -61,7 +61,7 @@ const Portfolios = (req)=>{
         window.alert("Portfolio saved");
         console.log("Portfolio saved")
 
-        history.push("/")
+        history.push("/mainpage")
       }
     }
     return(

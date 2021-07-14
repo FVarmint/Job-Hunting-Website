@@ -110,4 +110,18 @@ router.get('/portfoliosbyuser' , auth, async(req,res)=>{
     })
 })
 
+router.delete('/portfolios/delete/:id', async (req, res) => {
+    try {
+        const Portfolio = await portfolio.findByIdAndDelete(req.params.id);
+
+        if (!Portfolio) {
+            return res.status(404).send();
+        }
+
+        res.send(Portfolio);
+    } catch (e) {
+        res.status(500).send();
+    }
+})
+
 module.exports = router

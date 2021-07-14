@@ -52,7 +52,7 @@ const Jobs = () => {
         window.alert("Job Details Saved");
         console.log("Job Details Saved");
 
-        history.push("/")
+        history.push("/mainpage")
       }
     }
 

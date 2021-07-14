@@ -36,19 +36,20 @@ router.post('/users/jobs' , auth ,  async(req,res)=>{
         res.status(400).send(error);
     }
 })
-// router.delete('/jobs/delete/:id', async (req, res) => {
-//     try {
-//         const Job = await user.findByIdAndDelete(req.params.id);
 
-//         if (!Job) {
-//             return res.status(404).send();
-//         }
+router.delete('/jobs/delete/:id', async (req, res) => {
+    try {
+        const Job = await job.findByIdAndDelete(req.params.id);
 
-//         res.send(Job);
-//     } catch (e) {
-//         res.status(500).send();
-//     }
-// })
+        if (!Job) {
+            return res.status(404).send();
+        }
+
+        res.send(Job);
+    } catch (e) {
+        res.status(500).send();
+    }
+})
 
 router.get('/jobs/:id' ,auth ,  async(req,res)=>{
     const _id = req.params.id;

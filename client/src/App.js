@@ -15,6 +15,9 @@ import MainPage from './components/MainPage';
 import Logout from './components/Logout';
 import VerifiedSuccessfully from './components/VerifiedSuccessfully';
 import UpdatePortfolio from './components/UpdatePortfolio';
+import UpdateJob from './components/UpdateJob';
+import DeletePortfolio from './components/DeletePortfolio';
+import DeleteJob from './components/DeleteJob';
 
 const App = () => {
   return (
@@ -77,6 +80,18 @@ const App = () => {
 
       <Route exact path="/updateportfolios/:id">
         <UpdatePortfolio/>
+      </Route>
+
+      <Route exact path="/updatejobs/:id">
+        <UpdateJob/>
+      </Route>
+
+      <Route exact path="/deleteportfolio/:id">
+        <DeletePortfolio/>
+      </Route>
+
+      <Route exact path="/deletejob/:id">
+        <DeleteJob/>
       </Route>
     </>
   )

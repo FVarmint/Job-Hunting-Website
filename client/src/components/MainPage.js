@@ -94,6 +94,9 @@ const MainPage = () => {
           <p className="card-text">{job.description}</p>
           {/* <a href="#" className="btn btn-primary">Apply</a> */}
           {/* <a href="#" className="card-link">Another link</a> */}
+          <a href={`/updatejobs/${job._id}`} className="card-link">update job</a>
+          <a href={`/deletejob/${job._id}`} className="card-link">delete job</a>
+
         </div>
       </div>
       ))}
@@ -111,6 +114,7 @@ const MainPage = () => {
           {/* <a href="#" className="btn btn-primary">Apply</a> */}
           {/* <a href="#" className="card-link">Another link</a> */}
           <a href={`/updateportfolios/${portfolio._id}`} className="card-link">update portfolio</a>
+          <a href={`/deleteportfolio/${portfolio._id}`} className="card-link">delete portfolio</a>
 
         </div>
       </div>
