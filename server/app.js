@@ -1,21 +1,21 @@
 const express = require('express');
 const path = require('path');
-const registerRouter = require('./routers/register');
-const loginRouter = require('./routers/login');
-const usersRouter = require('./routers/users');
-const adminRouter = require('./routers/admin');
+const registerRouter = require('./src/routers/register');
+const loginRouter = require('./src/routers/login');
+const usersRouter = require('./src/routers/users');
+const adminRouter = require('./src/routers/admin');
 // const bodyParser = require('body-parser');
-const portfolioRouter = require('./routers/portfolio'); 
-const jobRouter = require('./routers/job');
-const applicationRouter = require('./routers/application');
-const forgotPasswordRouter = require('./routers/forgotPassword');
+const portfolioRouter = require('./src/routers/portfolio'); 
+const jobRouter = require('./src/routers/job');
+const applicationRouter = require('./src/routers/application');
+const forgotPasswordRouter = require('./src/routers/forgotPassword');
 const cors = require('cors');
 // const engine = require('react-view-engine');
 
 const app = express();
 const port = process.env.PORT || 5000;
 
-const viewsPath = path.join(__dirname , '../src/templates');
+// const viewsPath = path.join(__dirname , './src/templates');
 
 app.use(cors());
 app.use(express.json());
@@ -30,8 +30,8 @@ app.use(forgotPasswordRouter);
 // app.use(bodyParser.json())
 app.use(express.urlencoded({extended:false}));
 
-app.set('view engine' , 'hbs')
-app.set('views' , viewsPath)
+// app.set('view engine' , 'hbs')
+// app.set('views' , viewsPath)
 
 // app.set('views', __dirname + '../src/templates');
 // app.set('view engine', 'jsx');
@@ -41,14 +41,14 @@ app.set('views' , viewsPath)
 // app.set('view engine' , 'js');
 // app.use(engine.handler);
 
-app.use(express.static(viewsPath));
+// app.use(express.static(viewsPath));
 
-app.get('/' , (req,res)=>{
-    res.render("index");
-})
+if(process.env.NODE_ENV=="production"){
+    app.use(express.static("client/build"));
+}
 
 app.listen(port , ()=>{
-    console.log('App is listening at ' + `http://localhost:${ port }`);
+    console.log('App is listening');
 })
 
 // app.listen(process.env.port || 3000);
