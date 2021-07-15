@@ -1,14 +1,22 @@
 import React , { useState , useEffect} from 'react'
 import axios from 'axios';
-import Header from './Header'
+import Cookies from 'js-cookie'
+import Header from './Header';
 
-const DisplayJobs = () => {
+const DisplayJobsByUser = () => {
 
     const [jobs , setJobs] = useState([]);
 
-    const apiUrl = 'http://localhost:5000/displayjobs';
+    const authToken = Cookies.get("jwttoken");
+    // console.log(authToken);
+
+    const apiUrl = 'https://jobhuntingapp.herokuapp.com/jobsbyuser';
     const fetchData = async () => {
-      const response = await axios.get(apiUrl)
+      const response = await axios.get(apiUrl , {
+          headers:{
+            "Authorization" : `Bearer ${authToken}`
+          }
+      })
       console.log(response.data);
       setJobs(response.data);
   }
@@ -16,20 +24,9 @@ const DisplayJobs = () => {
   useEffect(()=>{
     fetchData();
   },[])
-              // axios({
-              //   method: 'get',
-              //   url: 'http://localhost:5000/displayjobs',
-              //   responseType: 'application/json'
-              // })
-              //   .then((response)=>{
-              //     console.log(response);
-              //   });
-
-    
-    
-      return (
+    return (
         <>
-          <Header title="Jobs"/>
+          <Header title="Jobs Uploaded by You"/> 
           <div className="jobs">
       {jobs.map((job) => (
         <div class="card">
@@ -42,11 +39,9 @@ const DisplayJobs = () => {
         </div>
       </div>
       ))}
-    </div>
+    </div> 
         </>
-      );
-  };
+    )
+}
 
-    
-
-export default DisplayJobs
+export default DisplayJobsByUser

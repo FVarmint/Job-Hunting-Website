@@ -61,7 +61,7 @@ router.get('/jobs/:id' ,auth ,  async(req,res)=>{
 
 })
 
-router.get('/displayjobs' , (req , res)=>{
+router.get('/displayalljobs' , (req , res)=>{
     // console.log("working")
     job.find({}).then((jobs)=>{
         res.status(200).send(jobs);

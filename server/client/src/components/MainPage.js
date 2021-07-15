@@ -13,7 +13,7 @@ const MainPage = () => {
     const authToken = Cookies.get("jwttoken");
     console.log(authToken);
 
-    const apiUrlUser = 'http://localhost:5000/users/me';
+    const apiUrlUser = 'https://jobhuntingapp.herokuapp.com/users/me';
     const fetchDataUser = async () => {
       const response = await axios.get(apiUrlUser , {
           headers:{
@@ -23,7 +23,7 @@ const MainPage = () => {
       console.log(response.data);
       setUser(response.data);
   }
-  const apiUrlJobs = 'http://localhost:5000/jobsbyuser';
+  const apiUrlJobs = 'https://jobhuntingapp.herokuapp.com/jobsbyuser';
     const fetchDataJobs = async () => {
       const response = await axios.get(apiUrlJobs , {
           headers:{
@@ -34,7 +34,7 @@ const MainPage = () => {
       setJobs(response.data);
   }
 
-  const apiUrlPortfolios = 'http://localhost:5000/portfoliosbyuser';
+  const apiUrlPortfolios = 'https://jobhuntingapp.herokuapp.com/portfoliosbyuser';
     const fetchDataPortfolios = async () => {
       const response = await axios.get(apiUrlPortfolios , {
           headers:{

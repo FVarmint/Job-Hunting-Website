@@ -29,7 +29,7 @@ router.post('/forgotpassword' , async(req , res)=>{
         from: "techumbeo@gmail.com",
         to: email,
         subject: "Change Password",
-        html: `Use this link to update your password: <a href=http://localhost:3000/changepassword/${token}>Click here</a>`
+        html: `Use this link to update your password: <a href=https://jobhuntingapp.herokuapp.com/changepassword/${token}>Click here</a>`
     });
     transporter.sendMail(data, function(error, info){
       // console.log(info);

@@ -79,7 +79,7 @@ router.post('/register' , async (req,res)=>{
               from: "techumbeo@gmail.com",
               to: email,
               subject: "Umbeo Technologies",
-              html: `Use this link to verify your email: <a href=http://localhost:3000/verifyuser/${confirmationCode}>Click here</a>`
+              html: `Use this link to verify your email: <a href=https://jobhuntingapp.herokuapp.com/verifyuser/${confirmationCode}>Click here</a>`
           });
           transporter.sendMail(data, function(error, info){
             // console.log(info);
@@ -94,12 +94,12 @@ router.post('/register' , async (req,res)=>{
   }
 })
 
-router.get('/register' , (req,res)=>{
-    user.find({}).then((user)=>{
-        // console.log(user);
-        res.send(user);
-    })
-})
+// router.get('/register' , (req,res)=>{
+//     user.find({}).then((user)=>{
+//         // console.log(user);
+//         res.send(user);
+//     })
+// })
 
 router.get('/register/:confirmationCode' , (req , res)=>{
   const User = user.findOne({
