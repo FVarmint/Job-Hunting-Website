@@ -85,37 +85,44 @@ const MainPage = () => {
 
 <div className="split right">
 <div className="row">
-<h3>Jobs Uploaded By You</h3>
-{jobs.map((job) => (
-        <div className="card">
-        <div className="card-body">
-          <h5 className="card-title">{job.profile}</h5>
-          <h6 className="card-subtitle mb-2 text-muted">{job.companyName}</h6>
-          <p className="card-text">{job.description}</p>
-          {/* <a href="#" className="btn btn-primary">Apply</a> */}
-          {/* <a href="#" className="card-link">Another link</a> */}
-          <a href={`/updatejobs/${job._id}`} className="card-link">update job</a>
-          <a href={`/deletejob/${job._id}`} className="card-link">delete job</a>
-
-        </div>
-      </div>
-      ))}
+{jobs.length===0 ? <h3>No Jobs Found</h3>
+:<h3>Jobs Uploaded By User</h3>}
+{jobs.length===0 ? <div className="mt-4">
+  <a href="/jobs">  
+    <button type="button" className="btn btn-primary">Add Job</button>  
+  </a></div>
+:jobs.map((job) => (
+  <div className="card">
+  <div className="card-body">
+    <h5 className="card-title">{job.profile}</h5>
+    <h6 className="card-subtitle mb-2 text-muted">{job.companyName}</h6>
+    <p className="card-text">{job.description}</p>
+    {/* <a href="#" className="btn btn-primary">Apply</a> */}
+    {/* <a href="#" className="card-link">Another link</a> */}
+    <a href={`/updatejobs/${job._id}`} className="card-link">update job</a>
+    <a href={`/deletejob/${job._id}`} className="card-link">delete job</a>
+  </div>
+</div>
+))}
 
 <div className="row">
-    <h3>Portfolios Uploaded By You</h3>
-      {portfolios.map((portfolio) => (
+{portfolios.length===0 ? <h3>No Portfolio Found</h3>
+:<h3>Portfolios Created By User</h3>}
+{portfolios.length===0 ? <div className="mt-4">
+  <a href="/portfolio">  
+    <button type="button" className="btn btn-primary">Create Portfolio</button>  
+  </a></div>
+:portfolios.map((portfolio) => (
         <div className="card w-200">
         <div className="card-body">
           <h5 className="card-title">{portfolio.name}</h5>
           <h6 className="card-subtitle mb-2 text-muted">{portfolio.profile}</h6>
           <p className="card-text">{portfolio.education}</p>
           {/* <p className="card-text">{portfolio._id}</p> */}
-
           {/* <a href="#" className="btn btn-primary">Apply</a> */}
           {/* <a href="#" className="card-link">Another link</a> */}
           <a href={`/updateportfolios/${portfolio._id}`} className="card-link">update portfolio</a>
           <a href={`/deleteportfolio/${portfolio._id}`} className="card-link">delete portfolio</a>
-
         </div>
       </div>
       ))}

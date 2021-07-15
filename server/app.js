@@ -4,7 +4,7 @@ const registerRouter = require('./src/routers/register');
 const loginRouter = require('./src/routers/login');
 const usersRouter = require('./src/routers/users');
 const adminRouter = require('./src/routers/admin');
-// const bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 const portfolioRouter = require('./src/routers/portfolio'); 
 const jobRouter = require('./src/routers/job');
 const applicationRouter = require('./src/routers/application');
@@ -16,7 +16,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 // const viewsPath = path.join(__dirname , './src/templates');
-
+// app.use(bodyParser.json())
 app.use(cors());
 app.use(express.json());
 app.use(registerRouter);
@@ -27,8 +27,8 @@ app.use(jobRouter);
 app.use(portfolioRouter);
 app.use(applicationRouter);
 app.use(forgotPasswordRouter);
-// app.use(bodyParser.json())
 app.use(express.urlencoded({extended:false}));
+app.use(bodyParser.json())
 
 // app.set('view engine' , 'hbs')
 // app.set('views' , viewsPath)
@@ -43,9 +43,12 @@ app.use(express.urlencoded({extended:false}));
 
 // app.use(express.static(viewsPath));
 
-if(process.env.NODE_ENV=="production"){
-    app.use(express.static("client/build"));
-}
+// if(process.env.NODE_ENV=="production"){
+//     app.use(express.static(path.join(__dirname, '../build')))
+//     app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname, '../build'))
+// })
+// }
 
 app.listen(port , ()=>{
     console.log('App is listening');
