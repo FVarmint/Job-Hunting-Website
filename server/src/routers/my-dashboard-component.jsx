@@ -18,7 +18,7 @@ const Dashboard = () => {
   <div className="container-fluid">
   <div className="container-fluid">
     <a className="navbar-brand" href="#">
-    <img src="adminLogo.png" alt="" width="40" height="40"/>
+    <img src="https://www.gstatic.com/images/branding/product/1x/admin_512dp.png" alt="" width="40" height="40"/>
       <span class="navbar-brand mb-0 h1"> DASHBOARD</span>
     </a>
   </div>
@@ -43,7 +43,7 @@ const Dashboard = () => {
       </Box>
       <div class="mx-4">
       <center>
-      <img src="adminLogo.png" class="img-fluid" alt=""/>
+      <img src="https://pics.freeicons.io/uploads/icons/png/16096534681582799504-512.png" class="img-fluid" alt=""/>
       <h2>Welcome To the Admin Panel</h2>
       </center>
       </div>

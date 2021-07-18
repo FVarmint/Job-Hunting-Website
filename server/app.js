@@ -30,11 +30,11 @@ app.use((req, res, next) => {
 // app.use(bodyParser.json())
 // app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(express.urlencoded({extended:false}));
+app.use('/admin' , adminRouter)
+app.use(express.urlencoded({extended:true}));
 app.use(registerRouter);
 app.use(loginRouter);
 app.use(usersRouter);
-app.use('/admin' , adminRouter)
 app.use(jobRouter);
 app.use(portfolioRouter);
 app.use(applicationRouter);

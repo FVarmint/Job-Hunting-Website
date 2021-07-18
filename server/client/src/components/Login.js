@@ -2,6 +2,7 @@ import React , {useState} from 'react'
 import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Header from './Header';
+import "./css/Login.css"
 
 const Login = () => {
 
@@ -52,32 +53,37 @@ const Login = () => {
 
     return (
         <>
-            <Header title="Login Page"/>
-            <div className="mx-4">
-            <form action="/users/login" method="POST">
-  <div className="mb-3">
-    <label for="exampleInputEmail1" className="form-label">Username</label>
-    <input type="username" className="form-control" id="usernameLogin" aria-describedby="emailHelp"
-    name="username"
-    value={user.username}
-    onChange={handleInputs}
-    />
-    <div id="emailHelp" className="form-text"></div>
+        <div className="body-background">
+            <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+
+    <div class="fadeIn first">
+      <img src="https://borlabs.io/wp-content/uploads/2019/09/blog-wp-login.png" id="icon" alt="User Icon" />
+    </div>
+
+    <form action="/users/login" method="POST">
+      <input type="username" id="login" class="fadeIn second" placeholder="Username"
+      name="username"
+      value={user.username}
+      onChange={handleInputs}/>
+      <input type="password" id="password" class="fadeIn third" placeholder="Password"
+      name="password"
+      value={user.password}
+      onChange={handleInputs}/>
+      <input type="submit" className="fadeIn fourth"
+      value="Login"
+      onClick={PostData}/>
+    </form>
+    <div id="formFooter">
+      <a className="underlineHover" href="/forgotpassword">Forgot Password?</a>
+      <a className="underlineHover" href="/register">Sign Up?</a>
+    </div>
   </div>
-  <div className="mb-3">
-    <label for="exampleInputPassword1" className="form-label">Password</label>
-    <input type="password" className="form-control" id="exampleInputPassword1"
-    name="password"
-    value={user.password}
-    onChange={handleInputs}
-    />
-  </div>
-  <div className="mb-3">
-  <Link to="/forgotpassword">forgotpassword?</Link>
-  </div>
-  <input class="btn btn-primary" type="submit" value="Login"
-  onClick={PostData}/>
-</form>
+</div>
 </div>
         </>
     )

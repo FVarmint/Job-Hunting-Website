@@ -1,7 +1,7 @@
 import React , { useState , useEffect} from 'react'
 import axios from 'axios';
 import Cookies from 'js-cookie'
-import './MainPage.css'
+import './css/MainPage.css'
 import Header from './Header';
 
 const MainPage = () => {
