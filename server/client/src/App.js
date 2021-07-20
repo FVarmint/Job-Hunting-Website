@@ -106,7 +106,7 @@ const App = () => {
         <ApplicationSent/>
       </Route>
 
-      <Route exact path="/applicationsbyjob/:jobid">
+      <Route exact path="/displayapplicationsbyjob/:jobid">
         <ApplicationsByJob/>
       </Route>
 

@@ -30,7 +30,7 @@ router.get('/applicationsbyjob/:jobid' , auth , async(req , res)=>{
     // const jobID = req.params.jobid;
     try{
     application.find({jobID: req.params.jobid}).then((application)=>{
-        res.send(application);
+        res.status(200).send(application);
     }).catch((e)=>{
         res.status(400).send(e);
     })

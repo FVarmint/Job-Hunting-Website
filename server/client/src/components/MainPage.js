@@ -101,7 +101,7 @@ const MainPage = () => {
     {/* <a href="#" className="card-link">Another link</a> */}
     <a href={`/updatejobs/${job._id}`} className="card-link">update job</a>
     <a href={`/deletejob/${job._id}`} className="card-link">delete job</a>
-    <a href={`/applicationsbyjob/${job._id}`} className="card-link">Applications</a>
+    <a href={`/displayapplicationsbyjob/${job._id}`} className="card-link">Applications</a>
   </div>
 </div>
 ))}
