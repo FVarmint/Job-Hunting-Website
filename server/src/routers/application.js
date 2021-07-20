@@ -6,84 +6,47 @@ const router = new express.Router();
 const url = 'mongodb://localhost/applicationDB'
 const mongoose = require('mongoose');
 const auth = require('../middleware/auth');
+const portfolio = require('../models/portfolio');
 
-// const job = express();
-// mongoose.connect(url , {useNewUrlParser:true, useUnifiedTopology:true, useCreateIndex: true , useFindAndModify:false})
-// const con = mongoose.connection;
-
-// con.on('open' , ()=>{
-//     console.log('jobDB connected')
-// })
-
-router.post('/users/applications' , auth ,  async(req,res)=>{
+router.post('/applyforjob/:jobid/:portfolioid' , auth , async(req , res)=>{
     try{
-        const user = req.User._id;
-        const registerApplication = await new application({
-            date: req.body.date,
-            // jobID: job,
-            // portfolioID: portfolio,
-        })
-        registerApplication.save().then(()=>{
-            console.log(registerApplication);
-            res.send(registerApplication)
+    const applyForJob = await new application({
+        jobID: req.params.jobid,
+        portfolioID: req.params.portfolioid
+    })
+    applyForJob.save().then(()=>{
+        // console.log(applyForJob);
+        res.send(applyForJob);
+        }).catch((e)=>{
+            res.status(400).send(e);
         })
     }
-   
-    catch(error){
-        res.status(400).send(error);
+    catch(e){
+        res.status(400).send(e);
     }
 })
-// router.delete('/jobs/delete/:id', async (req, res) => {
-//     try {
-//         const Job = await user.findByIdAndDelete(req.params.id);
 
-//         if (!Job) {
-//             return res.status(404).send();
-//         }
+router.get('/applicationsbyjob/:jobid' , auth , async(req , res)=>{
+    // const jobID = req.params.jobid;
+    try{
+    application.find({jobID: req.params.jobid}).then((application)=>{
+        res.send(application);
+    }).catch((e)=>{
+        res.status(400).send(e);
+    })
+}
+catch(e){
+    res.status(400).send(e);
+}
+})
 
-//         res.send(Job);
-//     } catch (e) {
-//         res.status(500).send();
-//     }
-// })
-
-// router.get('/jobs/:id' ,auth ,  async(req,res)=>{
-//     const _id = req.params.id;
-
-//     job.findById(_id).then((job)=>{
-//         res.send(job);
-//     })
-
-
-// })
-
-// router.post('/jobsbyuser' , auth, async(req,res)=>{
-//     //const User._id = req.params.id;
-//     const user = req.User._id;
-//     job.find({userID:user}).then((job)=>{
-//         res.send(job);
-//     })
-// })
-// router.patch('/jobs/update/:id', async (req, res) => {
-//     const updates = Object.keys(req.body)
-//     const allowedUpdates = ['companyName', 'jobDescription', 'profile', 'experience', 'jobDetails', 'jobLocation']
-//     const isValidOperation = updates.every((update) => allowedUpdates.includes(update))
-
-//     if (!isValidOperation) {
-//         return res.status(400).send({ error: 'Invalid updates!' })
-//     }
-
-//     try {
-//         const Job = await job.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true })
-    
-//         if (!Job) {
-//             return res.status(404).send()
-//         }
-
-//         res.send(Job)
-//     } catch (e) {
-//         res.status(400).send(e)
-//     }
-// })
+router.get('/applicationdetails/:applicationid' , auth, async(req , res)=>{
+    const Application = await application.findById(req.params.applicationid);
+    portfolio.findById(Application.portfolioID).then((portfolio)=>{
+        res.status(200).send(portfolio);
+    }).catch((e)=>{
+        res.status(400).send(e);
+    })
+})
 
 module.exports = router

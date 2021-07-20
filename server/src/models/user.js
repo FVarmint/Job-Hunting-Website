@@ -37,6 +37,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: false
     },
+    defaultPortfolio: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'portfolio'
+    },
     confirmationCode:{
         type: String,
     },

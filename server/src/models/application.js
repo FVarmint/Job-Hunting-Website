@@ -6,12 +6,6 @@ const portfolio = require('./portfolio')
 
 const applicationSchema = new mongoose.Schema({
     
-    date:{
-        type:String,
-        unique:false,
-        required:true
-    }
-    ,
     jobID:{
         type: mongoose.Schema.Types.ObjectId, 
         ref: 'job'
@@ -20,7 +14,9 @@ const applicationSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId, 
         ref: 'portfolio'
     }
-})
+},
+{timestamps:true}
+);
 
 const application = new mongoose.model('application' , applicationSchema);
 module.exports = application;

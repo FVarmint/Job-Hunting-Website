@@ -11,7 +11,7 @@ const MainPage = () => {
     const [portfolios , setPortfolios] = useState([]);
 
     const authToken = Cookies.get("jwttoken");
-    console.log(authToken);
+    // console.log(authToken);
 
     const apiUrlUser = 'https://jobhuntingapp.herokuapp.com/users/me';
     const fetchDataUser = async () => {
@@ -101,6 +101,7 @@ const MainPage = () => {
     {/* <a href="#" className="card-link">Another link</a> */}
     <a href={`/updatejobs/${job._id}`} className="card-link">update job</a>
     <a href={`/deletejob/${job._id}`} className="card-link">delete job</a>
+    <a href={`/applicationsbyjob/${job._id}`} className="card-link">Applications</a>
   </div>
 </div>
 ))}

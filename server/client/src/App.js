@@ -18,6 +18,10 @@ import UpdatePortfolio from './components/UpdatePortfolio';
 import UpdateJob from './components/UpdateJob';
 import DeletePortfolio from './components/DeletePortfolio';
 import DeleteJob from './components/DeleteJob';
+import ApplyForJob from './components/ApplyForJob';
+import ApplicationSent from './components/ApplicationSent'
+import ApplicationsByJob from './components/ApplicationsByJob';
+import PortfolioByApplication from './components/PortfolioByApplication';
 
 const App = () => {
   return (
@@ -92,6 +96,22 @@ const App = () => {
 
       <Route exact path="/deletejob/:id">
         <DeleteJob/>
+      </Route>
+
+      <Route exact path="/applyforjob/:jobid">
+        <ApplyForJob/>
+      </Route>
+
+      <Route exact path="/applyforjob/:jobid/:portfolioid">
+        <ApplicationSent/>
+      </Route>
+
+      <Route exact path="/applicationsbyjob/:jobid">
+        <ApplicationsByJob/>
+      </Route>
+
+      <Route exact path="/portfoliobyapplication/:applicationid">
+        <PortfolioByApplication/>
       </Route>
     </>
   )

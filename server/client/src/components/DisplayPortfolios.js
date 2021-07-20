@@ -20,7 +20,7 @@ const DisplayPortfolios = () => {
     return (
         <>
           <Header title="Portfolios"/>  
-          <div className="jobs">
+          <div className="portfolios">
       {portfolios.map((portfolio) => (
         <div class="card">
         <div class="card-body">

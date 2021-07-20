@@ -6,9 +6,9 @@ const DisplayJobs = () => {
 
     const [jobs , setJobs] = useState([]);
 
-    const apiUrl = 'https://jobhuntingapp.herokuapp.com/displayalljobs';
+    const jobsApiUrl = 'https://jobhuntingapp.herokuapp.com/displayalljobs';
     const fetchData = async () => {
-      const response = await axios.get(apiUrl)
+      const response = await axios.get(jobsApiUrl)
       console.log(response.data);
       setJobs(response.data);
   }
@@ -37,7 +37,7 @@ const DisplayJobs = () => {
           <h5 class="card-title">{job.profile}</h5>
           <h6 class="card-subtitle mb-2 text-muted">{job.companyName}</h6>
           <p class="card-text">{job.description}</p>
-          <a href="#" class="btn btn-primary">Apply</a>
+          <a href={`/applyforjob/${job._id}`} class="btn btn-primary">Apply</a>
           {/* <a href="#" class="card-link">Another link</a> */}
         </div>
       </div>

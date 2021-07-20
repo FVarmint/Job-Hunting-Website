@@ -63,6 +63,7 @@ router.post('/register' , async (req,res)=>{
             age: req.body.age,
             gender: req.body.gender,
             // userImage: req.file.filename,
+            // defaultPortfolio: req.body.portfolio,
             confirmationCode: token
           });
         
