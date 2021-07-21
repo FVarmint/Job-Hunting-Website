@@ -2,6 +2,7 @@ import React , { useState } from 'react'
 import { useHistory } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import Header from './Header';
+import Sidebar from './Sidebar';
 
 const Portfolios = (req)=>{
   const history = useHistory();
@@ -66,7 +67,7 @@ const Portfolios = (req)=>{
     }
     return(
         <>
-        <Header title="Portfolios"/>
+        <Sidebar title="Portfolios"/>
 <div className="mx-4">
 <form action="/register" method="POST">
 <div className="mb-3">

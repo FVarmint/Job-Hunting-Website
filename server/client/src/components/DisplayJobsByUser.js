@@ -2,6 +2,7 @@ import React , { useState , useEffect} from 'react'
 import axios from 'axios';
 import Cookies from 'js-cookie'
 import Header from './Header';
+import Sidebar from './Sidebar';
 
 const DisplayJobsByUser = () => {
 
@@ -26,7 +27,7 @@ const DisplayJobsByUser = () => {
   },[])
     return (
         <>
-          <Header title="Jobs Uploaded by You"/> 
+          <Sidebar title="Jobs Uploaded by You"/> 
           <div className="jobs">
       {jobs.map((job) => (
         <div class="card">

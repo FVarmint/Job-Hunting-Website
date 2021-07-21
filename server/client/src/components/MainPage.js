@@ -3,6 +3,7 @@ import axios from 'axios';
 import Cookies from 'js-cookie'
 import './css/MainPage.css'
 import Header from './Header';
+import Sidebar from './Sidebar';
 
 const MainPage = () => {
 
@@ -53,7 +54,8 @@ const MainPage = () => {
 
     return (
         <>
-        <Header title="Job Hunting Website" searchBar={false} loggedInUser={user.username}/>
+        <Sidebar title="Job Hunting Website" searchBar={false} loggedInUser={user.username}/>
+        
             <div className="split left">
   <div className="centered">
   <div className="users">

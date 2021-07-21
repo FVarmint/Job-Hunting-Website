@@ -1,6 +1,7 @@
 import React , { useState , useEffect} from 'react'
 import axios from 'axios';
 import Header from './Header'
+import Sidebar from './Sidebar';
 
 const DisplayJobs = () => {
 
@@ -29,7 +30,7 @@ const DisplayJobs = () => {
     
       return (
         <>
-          <Header title="Jobs"/>
+          <Sidebar title="Jobs"/>
           <div className="jobs">
       {jobs.map((job) => (
         <div class="card">

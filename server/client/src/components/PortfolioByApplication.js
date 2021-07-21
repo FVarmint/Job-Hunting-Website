@@ -4,6 +4,7 @@ import Cookies from 'js-cookie'
 import './css/MainPage.css'
 import Header from './Header';
 import { useParams } from 'react-router-dom';
+import Sidebar from './Sidebar';
 
 const PortfolioByApplication = () => {
 
@@ -31,7 +32,7 @@ const PortfolioByApplication = () => {
 
     return (
         <>
-            <Header/>
+            <Sidebar/>
             <div class="card">
   <div class="card-body">
   <h5 className="card-title">{portfolio.name}</h5>
