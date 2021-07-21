@@ -14,7 +14,7 @@ const ApplicationsByJob = () => {
 
     const { jobid } = useParams();
 
-    const apiUrlApplication = `http://localhost:5000/applicationsbyjob/${jobid}`;
+    const apiUrlApplication = `https://jobhuntingapp.herokuapp.com/applicationsbyjob/${jobid}`;
     const fetchDataApplication = async() => {
         const response = await axios.get(apiUrlApplication , {
             headers:{

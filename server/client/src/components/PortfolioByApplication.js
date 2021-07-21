@@ -15,7 +15,7 @@ const PortfolioByApplication = () => {
     const authToken = Cookies.get("jwttoken");
     // console.log(authToken);
 
-    const apiUrlPortfolio = `http://localhost:5000/applicationdetails/${applicationid}`;
+    const apiUrlPortfolio = `https://jobhuntingapp.herokuapp.com/applicationdetails/${applicationid}`;
     const fetchDataPortfolio = async () => {
       const response = await axios.get(apiUrlPortfolio , {
           headers:{
@@ -35,7 +35,7 @@ const PortfolioByApplication = () => {
             <Sidebar/>
             <div class="card">
   <div class="card-body">
-  <h5 className="card-title">{portfolio.name}</h5>
+    <h5 className="card-title">{portfolio.name}</h5>
           <h6 className="card-subtitle mb-2 text-muted">{portfolio.profile}</h6>
           <p className="card-text">{portfolio.education}</p>
     {/* <a href="#" class="card-link">Card link</a> */}

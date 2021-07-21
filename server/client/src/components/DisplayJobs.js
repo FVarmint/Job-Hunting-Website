@@ -7,9 +7,9 @@ const DisplayJobs = () => {
 
     const [jobs , setJobs] = useState([]);
 
-    const jobsApiUrl = 'https://jobhuntingapp.herokuapp.com/displayalljobs';
+    const apiUrl = 'https://jobhuntingapp.herokuapp.com/displayalljobs';
     const fetchData = async () => {
-      const response = await axios.get(jobsApiUrl)
+      const response = await axios.get(apiUrl)
       console.log(response.data);
       setJobs(response.data);
   }
@@ -17,28 +17,37 @@ const DisplayJobs = () => {
   useEffect(()=>{
     fetchData();
   },[])
-              // axios({
-              //   method: 'get',
-              //   url: 'http://localhost:5000/displayjobs',
-              //   responseType: 'application/json'
-              // })
-              //   .then((response)=>{
-              //     console.log(response);
-              //   });
+  
+  const [searchJob , setSearchJob] = useState('');
 
-    
-    
       return (
         <>
+
           <Sidebar title="Jobs"/>
+          <Header title="Jobs"/>
+        {/* <button class="btn btn-outline-success" type="submit">Search</button>  */}
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" onChange = {event =>{setSearchJob(event.target.value)}}/>
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
           <div className="jobs">
-      {jobs.map((job) => (
+      {jobs.filter((job)=>{
+        if (searchJob == ""){
+          return job
+        } 
+        else if(job.profile.toLowerCase().includes(searchJob.toLowerCase())){
+          return job
+        }
+        else if(job.companyName.toLowerCase().includes(searchJob.toLowerCase())){
+          return job
+        }
+      }).map((job) => (
         <div class="card">
         <div class="card-body">
           <h5 class="card-title">{job.profile}</h5>
           <h6 class="card-subtitle mb-2 text-muted">{job.companyName}</h6>
           <p class="card-text">{job.description}</p>
-          <a href={`/applyforjob/${job._id}`} class="btn btn-primary">Apply</a>
+          <a href="#" class="btn btn-primary">Apply</a>
           {/* <a href="#" class="card-link">Another link</a> */}
         </div>
       </div>
@@ -47,7 +56,5 @@ const DisplayJobs = () => {
         </>
       );
   };
-
-    
 
 export default DisplayJobs
