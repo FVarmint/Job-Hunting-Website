@@ -2,6 +2,7 @@ import React , {useState} from 'react'
 import { useHistory } from 'react-router-dom';
 import Cookies from 'js-cookie'
 import Header from './Header';
+import Sidebar from './Sidebar';
 
 
 const UpdateProfile = () => {
@@ -56,7 +57,7 @@ const UpdateProfile = () => {
 
     return (
         <>
-          <Header title="Update Profile"/>
+          <Sidebar title="Update Profile"/>
           <div className="mx-4 mt-4">
           <div class="row g-3 align-items-center">
   <div class="col-auto">

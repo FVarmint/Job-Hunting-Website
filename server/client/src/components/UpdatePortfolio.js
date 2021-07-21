@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom';
 import Header from './Header';
 import { useParams } from 'react-router-dom';
+import Sidebar from './Sidebar';
 
 const UpdatePortfolio = () => {
     const { id } = useParams();
@@ -66,7 +67,7 @@ const UpdatePortfolio = () => {
 
     return (
         <>
-            <Header title="Update Portfolio" />
+            <Sidebar title="Update Portfolio" />
             <div className="mx-4 mt-4">
                 <div class="row g-3 align-items-center">
                     <div class="col-auto">
