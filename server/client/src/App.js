@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route } from "react-router-dom";
+import { Route, Router, Switch } from "react-router-dom";
 import Register from './components/Register'
 import Login from './components/Login';
 import Jobs from './components/Jobs';
@@ -22,6 +22,7 @@ import ApplyForJob from './components/ApplyForJob';
 import ApplicationSent from './components/ApplicationSent'
 import ApplicationsByJob from './components/ApplicationsByJob';
 import PortfolioByApplication from './components/PortfolioByApplication';
+import Sidebar from './components/Sidebar';
 
 const App = () => {
   return (
@@ -113,6 +114,7 @@ const App = () => {
       <Route exact path="/portfoliobyapplication/:applicationid">
         <PortfolioByApplication/>
       </Route>
+      
     </>
   )
 }

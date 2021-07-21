@@ -1,6 +1,7 @@
 import React , { useState , useEffect} from 'react'
 import axios from 'axios';
 import Header from './Header'
+import Sidebar from './Sidebar';
 
 const DisplayJobs = () => {
 
@@ -21,6 +22,8 @@ const DisplayJobs = () => {
 
       return (
         <>
+
+          <Sidebar title="Jobs"/>
           <Header title="Jobs"/>
         {/* <button class="btn btn-outline-success" type="submit">Search</button>  */}
         <form class="d-flex">
