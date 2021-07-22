@@ -12,8 +12,7 @@ const applicationSchema = new mongoose.Schema({
     },
     portfolioID:{
         type: mongoose.Schema.Types.ObjectId, 
-        ref: 'portfolio',
-        unique: true
+        ref: 'portfolio'
 
     }
 },
