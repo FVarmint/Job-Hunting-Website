@@ -1,7 +1,6 @@
 import React , { useState , useEffect} from 'react'
 import axios from 'axios';
 import Cookies from 'js-cookie'
-import './css/MainPage.css'
 import Header from './Header';
 import { useParams } from 'react-router-dom';
 

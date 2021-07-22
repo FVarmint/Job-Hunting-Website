@@ -56,6 +56,8 @@ router.post('/register' , async (req,res)=>{
         const token = await jwt.sign({email: req.body.email}, config.secret)
         // console.log(token)
         const registerUser = await new user({
+            fname: req.body.fname,
+            lname: req.body.lname,
             username: req.body.username,
             email: req.body.email,
             password:req.body.password,
