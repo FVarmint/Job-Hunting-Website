@@ -12,7 +12,9 @@ const applicationSchema = new mongoose.Schema({
     },
     portfolioID:{
         type: mongoose.Schema.Types.ObjectId, 
-        ref: 'portfolio'
+        ref: 'portfolio',
+        unique: true
+
     }
 },
 {timestamps:true}

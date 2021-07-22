@@ -32,7 +32,8 @@ const ApplicationsByJob = () => {
         <>
             <Header/>
             <div className="applications">
-      {applications.map((application) => (
+      {applications.length===0? <h3>No Application Found</h3>
+      :applications.map((application) => (
         <div class="card">
         <div class="card-body">
           <h5 class="card-title">{application._id}</h5>
