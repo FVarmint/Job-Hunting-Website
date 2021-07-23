@@ -4,7 +4,6 @@ import Header from './Header'
 const IndexView = () => {
   return (
     <div>
-      <Header/>
     </div>
   )
 }
