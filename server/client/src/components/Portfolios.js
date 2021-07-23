@@ -67,7 +67,7 @@ const Portfolios = (req)=>{
     }
     return(
         <>
-        <Sidebar title="Portfolios"/>
+        <Header/>
 <div className="mx-4">
 <form action="/register" method="POST">
 <div className="mb-3">

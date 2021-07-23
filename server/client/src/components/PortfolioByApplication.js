@@ -31,7 +31,7 @@ const PortfolioByApplication = () => {
 
     return (
         <>
-            <Sidebar/>
+            <Header/>
             <div class="card">
   <div class="card-body">
     <h5 className="card-title">{portfolio.name}</h5>

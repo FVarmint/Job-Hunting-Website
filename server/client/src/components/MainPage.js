@@ -127,7 +127,7 @@ const MainPage = () => {
         <>
         {/* <Sidebar title="Job Hunting Website" searchBar={false} loggedInUser={user.username}/> */}
         <Header loggedInUser={user.username}/>
-<Container>
+<Container spacing={10}>
 <Grid container spacing={10}>
   <Grid item xs={12} sm={6} md={4}>
     <Paper>

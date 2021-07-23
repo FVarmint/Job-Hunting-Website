@@ -57,7 +57,7 @@ const UpdateProfile = () => {
 
     return (
         <>
-          <Sidebar title="Update Profile"/>
+          <Header/>
           <div className="mx-4 mt-4">
           <div class="row g-3 align-items-center">
   <div class="col-auto">

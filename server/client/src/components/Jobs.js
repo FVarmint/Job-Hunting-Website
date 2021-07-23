@@ -59,7 +59,7 @@ const Jobs = () => {
 
     return (
         <>
-        <Sidebar title="Jobs"/>
+        <Header/>
 <div className="mx-4">
 <form action="/register" method="POST">
 <div className="mb-3">
