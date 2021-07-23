@@ -1,28 +1,28 @@
 import React from 'react'
 import { Route, Router, Switch } from "react-router-dom";
-import Register from './components/Register'
-import Login from './components/Login';
-import Jobs from './components/Jobs';
-import Portfolios from './components/Portfolios'
-import ForgotPassword from './components/ForgotPassword';
-import ChangePassword from './components/ChangePassword';
-import UpdateProfile from './components/UpdateProfile';
-import DisplayJobs from './components/DisplayJobs';
-import DisplayPortfolios from './components/DisplayPortfolios';
-import DisplayJobsByUser from './components/DisplayJobsByUser';
-import DisplayPortfoliosByUser from './components/DisplayPortfoliosByUser';
-import MainPage from './components/MainPage';
-import Logout from './components/Logout';
-import VerifiedSuccessfully from './components/VerifiedSuccessfully';
-import UpdatePortfolio from './components/UpdatePortfolio';
-import UpdateJob from './components/UpdateJob';
-import DeletePortfolio from './components/DeletePortfolio';
-import DeleteJob from './components/DeleteJob';
-import ApplyForJob from './components/ApplyForJob';
-import ApplicationSent from './components/ApplicationSent'
-import ApplicationsByJob from './components/ApplicationsByJob';
-import PortfolioByApplication from './components/PortfolioByApplication';
-import Sidebar from './components/Sidebar';
+import Register from './Components/Register'
+import Login from './Components/Login';
+import Jobs from './Components/Jobs';
+import Portfolios from './Components/Portfolios'
+import ForgotPassword from './Components/ForgotPassword';
+import ChangePassword from './Components/ChangePassword';
+import UpdateProfile from './Components/UpdateProfile';
+import DisplayJobs from './Components/DisplayJobs';
+import DisplayPortfolios from './Components/DisplayPortfolios';
+import DisplayJobsByUser from './Components/DisplayJobsByUser';
+import DisplayPortfoliosByUser from './Components/DisplayPortfoliosByUser';
+import MainPage from './Components/MainPage';
+import Logout from './Components/Logout';
+import VerifiedSuccessfully from './Components/VerifiedSuccessfully';
+import UpdatePortfolio from './Components/UpdatePortfolio';
+import UpdateJob from './Components/UpdateJob';
+import DeletePortfolio from './Components/DeletePortfolio';
+import DeleteJob from './Components/DeleteJob';
+import ApplyForJob from './Components/ApplyForJob';
+import ApplicationSent from './Components/ApplicationSent'
+import ApplicationsByJob from './Components/ApplicationsByJob';
+import PortfolioByApplication from './Components/PortfolioByApplication';
+import IndexView from "./Components/IndexView"
 
 const App = () => {
   return (
@@ -113,6 +113,10 @@ const App = () => {
 
       <Route exact path="/portfoliobyapplication/:applicationid">
         <PortfolioByApplication/>
+      </Route>
+
+      <Route path="/">
+        <IndexView/>
       </Route>
       
     </>
