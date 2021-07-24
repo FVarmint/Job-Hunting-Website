@@ -7,7 +7,9 @@
     z-index: 2;    
 }
 .nav-logout {
-    margin-left: 1050px;
+    margin-top:15px;
+    margin-left: 1375px;
+    color: rgb(251, 255, 0);
 }
 
 .menu-bars {
