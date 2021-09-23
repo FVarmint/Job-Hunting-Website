@@ -22,8 +22,6 @@ const DisplayJobs = () => {
 
       return (
         <>
-
-          <Sidebar title="Jobs"/>
           <Header title="Jobs"/>
         {/* <button class="btn btn-outline-success" type="submit">Search</button>  */}
         <form class="d-flex">
