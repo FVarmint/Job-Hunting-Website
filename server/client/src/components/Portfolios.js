@@ -151,7 +151,7 @@ const Portfolios = (req)=>{
     />
   </div>
   <div className="mb-3">
-    <label for="projectDiscription" className="form-label">Project Discription</label>
+    <label for="projectDiscription" className="form-label">Project Description</label>
     <styledTextArea name = "projectDiscription"/>
     <input type="text" className="form-control" id="projectDiscription" name="projectDiscription"
     value={user.projectDiscription}

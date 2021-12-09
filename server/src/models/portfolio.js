@@ -43,12 +43,10 @@ const portfolioSchema = new mongoose.Schema({
     },
     linkedinProfile: {
         type: String,
-        unique: true,
         required: false,
     },
     workSampleLink: {
         type: String,
-        unique: true,
         required: false,
     },
     userID: {

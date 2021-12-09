@@ -101,7 +101,7 @@ userSchema.methods.generateAuthToken = async function () {
 // //     next();
 // // })
 
-userSchema.statics.findByCredentials = async(username , password)=>{
+userSchema.statics.findByCredentials = async function (username , password){
     const User = await user.findOne({username});
     // console.log(User);
     if(!User){
@@ -127,14 +127,6 @@ userSchema.statics.findByCredentials = async(username , password)=>{
     // return User;
 }
 
-
-// userSchema.pre('save' , async function(next) {
-//     const user = this;
-
-//     console.log("Just before saving");
-
-//     next();
-// })
 
 userSchema.pre('save' , async function(next){
     if(!this.isModified('password')){

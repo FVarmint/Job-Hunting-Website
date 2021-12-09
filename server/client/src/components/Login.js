@@ -14,6 +14,8 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import Alert from '@material-ui/lab/Alert'
+import AlertTitle from '@material-ui/lab/AlertTitle';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -75,7 +77,11 @@ const Login = () => {
         console.log("Something is Wrong!")
       }
       else{
-        window.alert("Login Successful");
+        // window.alert("Login Successful");
+        <Alert severity="success">
+          <AlertTitle>Success</AlertTitle>
+            This is a success alert — <strong>check it out!</strong>
+        </Alert>
         console.log("Login Successful")
 
         history.push("/mainpage")

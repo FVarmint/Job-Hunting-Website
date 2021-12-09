@@ -8,10 +8,6 @@ const config = require("../config/auth.config");
 const nodemailer = require("nodemailer");
 const multer = require('multer');
 
-//  const mailgun = require('mailgun-js');
-//  const DOMAIN = "sandboxab158520fb3a41c1a6ab9c1d549b4eb1.mailgun.org";
-//  const mg = mailgun({apiKey: "f8957e177df300dd198267addbd20953-90ac0eb7-998a5e8e", domain: DOMAIN});
-
 const register = express();
 
 mongoose.connect(url , {useNewUrlParser:true, useUnifiedTopology:true, useCreateIndex: true , useFindAndModify:false})

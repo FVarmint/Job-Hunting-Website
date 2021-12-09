@@ -31,7 +31,7 @@ const Sidebar = (props) => {
                       <AiOutlineUser />
                     <Navbar.Brand href="#">{props.loggedInUser}</Navbar.Brand>
                     </Link>
-                {SidebarData.map((item, index) =>{
+                {SidebarData.map((item, index) => {
                   return (
                     <li key={index} className={item.cName}>
                       <Link to={item.path}>

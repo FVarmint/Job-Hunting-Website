@@ -83,7 +83,12 @@ const MainPage = () => {
   const classes = useStyles();
 
     return (
-        <>
+      <>
+<div style={{ 
+      backgroundImage: `url("https://images.saymedia-content.com/.image/t_share/MTc4NzM1OTc4MzE0MzQzOTM1/how-to-create-cool-website-backgrounds-the-ultimate-guide.png")`,
+      backgroundRepeat: 'repeat',
+      height:'2000px'
+    }}>
         <div id='main'>
         <Header loggedInUser={user.username}/>
 <Container spacing={10}>
@@ -93,9 +98,11 @@ const MainPage = () => {
       <div className="container">
     <div className="users">
     <ThemeProvider theme={theme}>
-  <div className="card">
+  <div className="card border-dark mb-3">
   <div className="card-body">
-    <h5 className="card-title">Hello, {user.username}</h5>
+  <img className="card-img-top" src="https://icon-library.com/images/code-icon-png/code-icon-png-20.jpg" alt="Card image cap"/>
+  <br/>
+    <h5 className="card-title">Hi, {user.username}</h5>
     <p className="card-text">{user.email}</p>
     <a href="/updateprofile" className="card-link">update profile</a>
     <a href="#" className="card-link">Another link</a>
@@ -121,14 +128,15 @@ const MainPage = () => {
   <Paper className={classes.paper}>
   <div className="container">
   {jobs.length===0 ? <h3>No Jobs Found</h3>
-:<h3>Jobs Uploaded By You</h3>}
+:<h3>Jobs Uploaded</h3>}
 {jobs.length===0 ? <div className="mt-4">
   <a href="/jobs">  
     <button type="button" className="btn btn-primary">Add Job</button>  
   </a></div>
 :jobs.map((job) => (
-  <div className="card">
+  <div className="card border-dark mb-3">
   <div className="card-body">
+  <img className="card-img-top" src="https://cdn-icons-png.flaticon.com/512/1089/1089129.png" alt="Card image cap"/>
     <h5 className="card-title">{job.profile}</h5>
     <h6 className="card-subtitle mb-2 text-muted">{job.companyName}</h6>
     <p className="card-text">{job.description}</p>
@@ -143,14 +151,15 @@ const MainPage = () => {
   <Paper className={classes.paper}>
   <div className="container">
   {portfolios.length===0 ? <h3>No Portfolio Found</h3>
-:<h3>Your Portfolios</h3>}
+:<h3>Portfolios</h3>}
 {portfolios.length===0 ? <div className="mt-4">
   <a href="/portfolio">  
     <button type="button" className="btn btn-primary">Create Portfolio</button>  
   </a></div>
 :portfolios.map((portfolio) => (
-        <div className="card w-200">
+        <div className="card border-dark mb-3">
         <div className="card-body">
+        <img className="card-img-top" src="https://www.pngitem.com/pimgs/m/228-2281314_clipart-computer-circle-icon-png-transparent-png.png" alt="Card image cap"/>
           <h5 className="card-title">{portfolio.name}</h5>
           <h6 className="card-subtitle mb-2 text-muted">{portfolio.profile}</h6>
           <p className="card-text">{portfolio.education}</p>
@@ -165,7 +174,8 @@ const MainPage = () => {
   </Grid>
   </Container>
   </div>
-        </>
+  </div>
+  </>
     )
 }
 

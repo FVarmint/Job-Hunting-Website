@@ -16,9 +16,8 @@ code {
   width:100%;
   height:768px;
   position: relative;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-image: url('./assets/img/background.png');
+  /* background-image: url('./assets/img/background.png'); */
+  /* background-repeat: repeat; */
 }
 
 nav{
