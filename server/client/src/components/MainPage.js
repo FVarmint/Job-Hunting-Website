@@ -85,7 +85,7 @@ const MainPage = () => {
     return (
       <>
 <div style={{ 
-      backgroundImage: `url("https://images.saymedia-content.com/.image/t_share/MTc4NzM1OTc4MzE0MzQzOTM1/how-to-create-cool-website-backgrounds-the-ultimate-guide.png")`,
+      backgroundImage: `url("https://www.pngmagic.com/product_images/website-background-image-size-psd-vector-photo.jpg")`,
       backgroundRepeat: 'repeat',
       height:'2000px'
     }}>
